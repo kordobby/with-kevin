@@ -33,14 +33,15 @@ const CardRoot = styled.div`
 `;
 
 const Card = styled.div<{ bgColor: string }>`
-  background-color: ${({ bgColor }) => bgColor};
-  color: white;
+  background-color: rgba(255, 255, 255, 0.247);
+  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(140%);
+  border: 1px solid white;
   font-weight: 800;
   border-radius: 15px;
-  width: 300px;
-  height: 500px;
+  width: 280px;
+  height: 480px;
   position: relative;
-  box-shadow: "0px 24px 72px rgba(36, 42, 48, 0.3), inset 0px 0px 0px 1px rgba(0, 0, 0, 0.08)";
+  box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.2);
   transition-duration: "0.3s";
   transition-property: "transform, box-shadow, background";
   transition-timing-function: "ease-out";
@@ -64,7 +65,7 @@ const CardGlow = styled.div`
 `;
 
 const CardText = styled.span<{ types: CardTextType }>`
-  color: white;
+  color: #ffffff;
   ${({ types }) => {
     switch (types) {
       case "name":
