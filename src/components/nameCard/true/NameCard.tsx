@@ -14,18 +14,24 @@ const NameCard = () => {
       <CardRoot onMouseMove={moveDynamic} onMouseLeave={clearTransform}>
         <Card ref={setCardElement} bgColor={bgColor}>
           <ProfileRoot>
-            <Profile></Profile>
-            {/* <img src={"images/pikachu.svg"} width="180" /> */}
+            {/* <Profile></Profile> */}
+            <img
+              src={"images/leetrue.png"}
+              width="180"
+              style={{ borderRadius: "90px" }}
+            />
           </ProfileRoot>
           <CardContents>
             <CardText types={`name`}>이트루</CardText>
-            <CardText types={`email`}>poordobby@naver.com</CardText>
-            <CardText types={`date`}>2022년 3월 21일</CardText>
+            <CardText types={`email`}>leetrue@chicment.com</CardText>
+            <CardText types={`date`}>Jr. FE Developer</CardText>
+            <CardText types={`email`}>@kordobby</CardText>
+            {/* <CardText types={`date`}>2022년 3월 21일</CardText> */}
           </CardContents>
           <CardGlow style={{ backgroundImage: glowEffect }} />
         </Card>
       </CardRoot>
-      <button onClick={shuffleColors}>shuffle</button>
+      {/* <button onClick={shuffleColors}>shuffle</button> */}
     </>
   );
 };
@@ -92,7 +98,7 @@ const CardText = styled.span<{ types: CardTextType }>`
       case "date":
         return css`
           font-size: 12px;
-          margin-top: 16px;
+          margin-top: 8px;
         `;
       default:
         return css``;
@@ -108,6 +114,7 @@ const ProfileRoot = styled.div`
   height: 213px;
   /* border: 1px solid blue; */
   padding-top: 30px;
+  margin-bottom: 50px;
   img {
     mask-position: center;
     mask-size: 50%;
