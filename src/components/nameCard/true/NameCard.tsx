@@ -29,19 +29,22 @@ const NameCard = () => {
 export default NameCard;
 
 const CardRoot = styled.div`
+  /* For CardGlow Effect */
   position: relative;
 `;
 
 const Card = styled.div<{ bgColor: string }>`
-  background-color: rgba(255, 255, 255, 0.247);
-  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(140%);
-  border: 1px solid white;
-  font-weight: 800;
-  border-radius: 15px;
   width: 280px;
   height: 480px;
-  position: relative;
+  border: 1px solid white;
+  border-radius: 12px;
+
+  /* Glassmorphism */
+  background-color: rgba(255, 255, 255, 0.247);
+  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(140%);
   box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.2);
+
+  /* Animation */
   transition-duration: "0.3s";
   transition-property: "transform, box-shadow, background";
   transition-timing-function: "ease-out";
@@ -54,18 +57,21 @@ const CardContents = styled.div`
 `;
 
 const CardGlow = styled.div`
-  position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 15px;
+  border-radius: 12px;
+
+  /* parent : CardRoot */
+  position: absolute;
   left: 0;
   top: 0;
 
-  background-image: radial-gradient(circle at 50% -20%, #ffffff22, #0000000f);
+  /* light */
+  background-image: radial-gradient(circle at 50% -20%, #ffffff31, #0000001d);
 `;
 
 const CardText = styled.span<{ types: CardTextType }>`
-  color: #ffffff;
+  color: #6870d8;
   ${({ types }) => {
     switch (types) {
       case "name":
