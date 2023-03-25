@@ -10,20 +10,30 @@ type CardTextType = "name" | "email" | "date";
 
 const NameCard = () => {
   const { shuffleColors, bgColor } = useShuffleTheme();
-  const { moveDynamic, clearTransform, setCardElement, glowEffect } =
-    useGestureHandle();
+  const {
+    moveDynamic,
+    clearTransform,
+    setCardElement,
+    glowEffect,
+    hologramEffect,
+    hologramPosition,
+    hologramFilter,
+  } = useGestureHandle();
 
+  // console.log(hologramEffect());
   return (
     <>
       <CardRoot onMouseMove={moveDynamic} onMouseLeave={clearTransform}>
         <Card ref={setCardElement} bgColor={bgColor}>
           <ProfileRoot>
-            {/* <img
-              src={"images/leetrue.png"}
-              width="180"
-              style={{ borderRadius: "90px" }}
-            /> */}
             <Profile />
+            <HologramGlow
+              style={{
+                backgroundPosition: hologramPosition,
+                filter: hologramFilter,
+                backgroundImage: hologramEffect,
+              }}
+            />
           </ProfileRoot>
           <CardContents>
             <ProfileContents types={`name`}>이트루</ProfileContents>
@@ -92,39 +102,21 @@ const CardGlow = styled.div`
   background-image: radial-gradient(circle at 50% -20%, #ffffff31, #0000001d);
 `;
 
-const HologramGlow = styled(CardGlow)`
-  /* background-image: radial-gradient(circle at 50% -20%, #4bf5f213, #020a3a4d); */
-`;
+const HologramGlow = styled.img`
+  z-index: 2;
+  mask-image: url(https://assets.codepen.io/13471/sparkles.gif);
+  width: 212px;
+  height: 212px;
+  border-radius: 300px;
+  background-size: 50% 42%, 200% 700%, 300% 100%, 200% 100%;
+  background-blend-mode: screen, difference, normal;
+  opacity: 0.2;
 
-const CardText = styled.div<{ types: CardTextType }>`
-  display: flex;
-  align-items: center;
-  color: #6870d8;
-  ${({ types }) => {
-    switch (types) {
-      case "name":
-        return css`
-          font-weight: 800;
-          font-size: 26px;
-        `;
-      case "email":
-        return css`
-          font-weight: 500;
-          font-size: 16px;
-          margin-top: 8px;
-        `;
-      case "date":
-        return css`
-          font-size: 12px;
-          margin-top: 8px;
-        `;
-      default:
-        return css``;
-    }
-  }}
-  span {
-    margin-left: 5px;
-  }
+  position: absolute;
+  top: 61.1%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 4px));
+  /* background-image: radial-gradient(circle at 50% -20%, #4bf5f213, #020a3a4d); */
 `;
 
 const ProfileRoot = styled.div`
@@ -133,7 +125,7 @@ const ProfileRoot = styled.div`
   align-items: center;
   position: relative;
   height: 213px;
-  padding-top: 30px;
+  padding-top: 50px;
   margin-bottom: 50px;
   /* border: 1px solid red; */
 `;
