@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import useShuffleTheme from "./hooks/useShuffleTheme";
 import useGestureHandle from "./hooks/useGestureHandle";
-
+import Profile from "./Profile";
 type CardTextType = "name" | "email" | "date";
 
 const NameCard = () => {
@@ -13,6 +13,10 @@ const NameCard = () => {
     <>
       <CardRoot onMouseMove={moveDynamic} onMouseLeave={clearTransform}>
         <Card ref={setCardElement} bgColor={bgColor}>
+          <ProfileRoot>
+            <Profile></Profile>
+            {/* <img src={"images/pikachu.svg"} width="180" /> */}
+          </ProfileRoot>
           <CardContents>
             <CardText types={`name`}>이트루</CardText>
             <CardText types={`email`}>poordobby@naver.com</CardText>
@@ -94,4 +98,22 @@ const CardText = styled.span<{ types: CardTextType }>`
         return css``;
     }
   }}
+`;
+
+const ProfileRoot = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 213px;
+  /* border: 1px solid blue; */
+  padding-top: 30px;
+  img {
+    mask-position: center;
+    mask-size: 50%;
+    mask-mode: alpha;
+    display: block;
+    /* mask-repeat: no-repeat; */
+    mask-image: url("https://res.cloudinary.com/simey/image/upload/Dev/PokemonCards/trainerbg.jpg");
+  }
 `;
