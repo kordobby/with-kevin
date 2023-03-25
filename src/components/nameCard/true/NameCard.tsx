@@ -17,6 +17,7 @@ const NameCard = () => {
     hologramEffect,
     hologramPosition,
     hologramFilter,
+    mouseOver,
   } = useGestureHandle();
 
   return (
@@ -35,7 +36,7 @@ const NameCard = () => {
           </ProfileRoot>
           <CardContents>
             <ProfileContents types={`name`}>이트루</ProfileContents>
-            <ProfileContents types={`email`}>Jr. FE Developer</ProfileContents>
+            <ProfileContents types={`email`}>FE Dev</ProfileContents>
 
             <ProfileContents
               types={`github`}
@@ -43,7 +44,7 @@ const NameCard = () => {
             >
               kordobby
             </ProfileContents>
-            <ProfileContents types={`email`} icon={<MdEmail size={20} />}>
+            <ProfileContents types={`github`} icon={<MdEmail size={20} />}>
               leetrue@chicment.com
             </ProfileContents>
           </CardContents>

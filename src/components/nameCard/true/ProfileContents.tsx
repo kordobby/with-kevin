@@ -33,18 +33,23 @@ const ProfileContentsWrapper = styled.div<{ types: CardTextType }>`
       case "name":
         return css`
           font-weight: 800;
-          font-size: 26px;
+          margin-top: 10px;
+          font-size: 28px;
         `;
       case "email":
         return css`
           font-weight: 500;
-          font-size: 16px;
-          margin-top: 8px;
+          font-size: 18px;
+          margin-top: 0px;
+          margin-bottom: 38px;
+          font-weight: 600;
         `;
       case "github":
         return css`
-          font-size: 12px;
-          margin-top: 8px;
+          font-size: 14px;
+          margin-top: 4px;
+          font-weight: 600;
+          color: #4650dec5;
         `;
       default:
         return css``;

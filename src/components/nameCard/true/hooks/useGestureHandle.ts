@@ -132,9 +132,10 @@ const useGestureHandle = () => {
     ).toString();
 
     return `brightness(calc((${result} * 0.3) + 0.5)) contrast(2) saturate(1.5)`;
-  }, [cardElement, cardX, cardY]);
+  }, [mouseOver, cardElement, cardX, cardY]);
 
   return {
+    mouseOver,
     moveDynamic,
     clearTransform,
     setCardElement,
