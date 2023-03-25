@@ -5,11 +5,25 @@ const useGestureHandle = () => {
   const [cardElement, setCardElement] = useState<HTMLDivElement | null>(null);
   const [cardX, setCardX] = useState<number>(0);
   const [cardY, setCardY] = useState<number>(0);
+  const [mousePointer, setMousePointer] = useState<{
+    mousePointerX: number;
+    mousePointerY: number;
+  }>({
+    mousePointerX: 0,
+    mousePointerY: 0,
+  });
+
   const moveDynamic: React.MouseEventHandler<HTMLDivElement> = (event) => {
     if (cardElement !== null) {
       const bounds = cardElement.getBoundingClientRect();
       const mousePointerX = event.clientX;
       const mousePointerY = event.clientY;
+
+      setMousePointer({
+        mousePointerX,
+        mousePointerY,
+      });
+
       const leftX = mousePointerX - bounds.x;
       const topY = mousePointerY - bounds.y;
       const cardX = leftX - bounds.width / 2; // (-139 ~ 139)
@@ -48,6 +62,12 @@ const useGestureHandle = () => {
     return `radial-gradient(circle at ${gradientX}px ${gradientY}px, #ffffff30, #0000000f)`;
   }, [cardElement, cardX, cardY]);
 
+  const hologramEffect: React.MouseEventHandler<HTMLDivElement> = (event) => {
+    const { mousePointerX, mousePointerY } = mousePointer;
+
+    const degreeX = 90 - (mousePointerX * 45) / document.body.clientWidth / 2;
+    const degreeY = 90 - (mousePointerY * 45) / document.body.clientHeight / 4;
+  };
   return {
     moveDynamic,
     clearTransform,

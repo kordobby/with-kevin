@@ -1,9 +1,11 @@
+import React from "react";
 import styled, { css } from "styled-components";
 import useShuffleTheme from "./hooks/useShuffleTheme";
 import useGestureHandle from "./hooks/useGestureHandle";
 import { VscGithubInverted } from "react-icons/vsc";
 import { MdEmail } from "react-icons/md";
 import ProfileContents from "./ProfileContents";
+import Profile from "./Profile";
 type CardTextType = "name" | "email" | "date";
 
 const NameCard = () => {
@@ -16,12 +18,12 @@ const NameCard = () => {
       <CardRoot onMouseMove={moveDynamic} onMouseLeave={clearTransform}>
         <Card ref={setCardElement} bgColor={bgColor}>
           <ProfileRoot>
-            {/* <Profile></Profile> */}
-            <img
+            {/* <img
               src={"images/leetrue.png"}
               width="180"
               style={{ borderRadius: "90px" }}
-            />
+            /> */}
+            <Profile />
           </ProfileRoot>
           <CardContents>
             <ProfileContents types={`name`}>이트루</ProfileContents>
@@ -133,4 +135,5 @@ const ProfileRoot = styled.div`
   height: 213px;
   padding-top: 30px;
   margin-bottom: 50px;
+  /* border: 1px solid red; */
 `;
