@@ -3,6 +3,7 @@ import useShuffleTheme from "./hooks/useShuffleTheme";
 import useGestureHandle from "./hooks/useGestureHandle";
 import { VscGithubInverted } from "react-icons/vsc";
 import { MdEmail } from "react-icons/md";
+import ProfileContents from "./ProfileContents";
 type CardTextType = "name" | "email" | "date";
 
 const NameCard = () => {
@@ -23,16 +24,18 @@ const NameCard = () => {
             />
           </ProfileRoot>
           <CardContents>
-            <CardText types={`name`}>이트루</CardText>
-            <CardText types={`email`}>
-              <VscGithubInverted size={20} />
-              <span>kordobby</span>
-            </CardText>
-            <CardText types={`email`}>
-              <MdEmail size={20} />
-              <span>leetrue@chicment.com</span>
-            </CardText>
-            <CardText types={`date`}>Jr. FE Developer</CardText>
+            <ProfileContents types={`name`}>이트루</ProfileContents>
+            <ProfileContents types={`email`}>Jr. FE Developer</ProfileContents>
+
+            <ProfileContents
+              types={`github`}
+              icon={<VscGithubInverted size={20} />}
+            >
+              kordobby
+            </ProfileContents>
+            <ProfileContents types={`email`} icon={<MdEmail size={20} />}>
+              leetrue@chicment.com
+            </ProfileContents>
           </CardContents>
           <CardGlow style={{ backgroundImage: glowEffect }} />
           {/* <HologramGlow /> */}
