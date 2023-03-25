@@ -48,19 +48,6 @@ const useGestureHandle = () => {
     return `radial-gradient(circle at ${gradientX}px ${gradientY}px, #ffffff30, #0000000f)`;
   }, [cardElement, cardX, cardY]);
 
-  const hologramEffect: React.MouseEventHandler<HTMLDivElement> = (event) => {
-    const mousePointerX = event.clientX;
-    const mousePointerY = event.clientY;
-
-    const degreeX = 90 - (mousePointerX * 90) / (document.body.clientWidth / 2);
-    const degreeY =
-      -90 + (mousePointerY * 90) / (document.body.clientHeight / 4);
-
-    const target = event.currentTarget;
-
-    target.style.setProperty("marginLeft", `${30 - degreeY * 5}%`);
-  };
-
   return {
     moveDynamic,
     clearTransform,

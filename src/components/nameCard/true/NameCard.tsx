@@ -1,7 +1,8 @@
 import styled, { css } from "styled-components";
 import useShuffleTheme from "./hooks/useShuffleTheme";
 import useGestureHandle from "./hooks/useGestureHandle";
-import Profile from "./Profile";
+import { VscGithubInverted } from "react-icons/vsc";
+import { MdEmail } from "react-icons/md";
 type CardTextType = "name" | "email" | "date";
 
 const NameCard = () => {
@@ -23,15 +24,20 @@ const NameCard = () => {
           </ProfileRoot>
           <CardContents>
             <CardText types={`name`}>이트루</CardText>
-            <CardText types={`email`}>leetrue@chicment.com</CardText>
+            <CardText types={`email`}>
+              <VscGithubInverted size={20} />
+              <span>kordobby</span>
+            </CardText>
+            <CardText types={`email`}>
+              <MdEmail size={20} />
+              <span>leetrue@chicment.com</span>
+            </CardText>
             <CardText types={`date`}>Jr. FE Developer</CardText>
-            <CardText types={`email`}>@kordobby</CardText>
-            {/* <CardText types={`date`}>2022년 3월 21일</CardText> */}
           </CardContents>
           <CardGlow style={{ backgroundImage: glowEffect }} />
+          {/* <HologramGlow /> */}
         </Card>
       </CardRoot>
-      {/* <button onClick={shuffleColors}>shuffle</button> */}
     </>
   );
 };
@@ -81,7 +87,13 @@ const CardGlow = styled.div`
   background-image: radial-gradient(circle at 50% -20%, #ffffff31, #0000001d);
 `;
 
-const CardText = styled.span<{ types: CardTextType }>`
+const HologramGlow = styled(CardGlow)`
+  /* background-image: radial-gradient(circle at 50% -20%, #4bf5f213, #020a3a4d); */
+`;
+
+const CardText = styled.div<{ types: CardTextType }>`
+  display: flex;
+  align-items: center;
   color: #6870d8;
   ${({ types }) => {
     switch (types) {
@@ -105,6 +117,9 @@ const CardText = styled.span<{ types: CardTextType }>`
         return css``;
     }
   }}
+  span {
+    margin-left: 5px;
+  }
 `;
 
 const ProfileRoot = styled.div`
@@ -113,15 +128,6 @@ const ProfileRoot = styled.div`
   align-items: center;
   position: relative;
   height: 213px;
-  /* border: 1px solid blue; */
   padding-top: 30px;
   margin-bottom: 50px;
-  img {
-    mask-position: center;
-    mask-size: 50%;
-    mask-mode: alpha;
-    display: block;
-    /* mask-repeat: no-repeat; */
-    mask-image: url("https://res.cloudinary.com/simey/image/upload/Dev/PokemonCards/trainerbg.jpg");
-  }
 `;
