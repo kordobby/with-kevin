@@ -27,7 +27,7 @@ export default ProfileContents;
 const ProfileContentsWrapper = styled.div<{ types: CardTextType }>`
   display: flex;
   align-items: center;
-  color: #6870d8;
+  color: #4650de;
   ${({ types }) => {
     switch (types) {
       case "name":

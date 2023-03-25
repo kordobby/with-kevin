@@ -3,14 +3,15 @@ import gsap from "gsap";
 
 const useGestureHandle = () => {
   const [cardElement, setCardElement] = useState<HTMLDivElement | null>(null);
+  const [mouseOver, setMouseOver] = useState<boolean>(false);
   const [cardX, setCardX] = useState<number>(0);
   const [cardY, setCardY] = useState<number>(0);
   const [mousePointer, setMousePointer] = useState<{
     mousePointerX: number;
     mousePointerY: number;
   }>({
-    mousePointerX: 0,
-    mousePointerY: 0,
+    mousePointerX: 429,
+    mousePointerY: 649,
   });
 
   const moveDynamic: React.MouseEventHandler<HTMLDivElement> = (event) => {
@@ -39,6 +40,7 @@ const useGestureHandle = () => {
         rotateY: cardRotateX * 5,
       });
     }
+    setMouseOver(true);
   };
 
   const clearTransform = () => {
@@ -50,7 +52,12 @@ const useGestureHandle = () => {
       });
       setCardX(0);
       setCardY(0);
+      setMousePointer({
+        mousePointerX: 429,
+        mousePointerY: 649,
+      });
     }
+    setMouseOver(false);
   };
 
   const glowEffect = useMemo(() => {
@@ -65,8 +72,9 @@ const useGestureHandle = () => {
   const hologramEffect = useMemo(() => {
     const { mousePointerX, mousePointerY } = mousePointer;
 
-    const degreeX = 90 - (mousePointerX * 45) / document.body.clientWidth / 2;
-    const degreeY = 90 - (mousePointerY * 45) / document.body.clientHeight / 4;
+    const degreeX = 90 - (mousePointerX * 90) / (document.body.clientWidth / 2);
+    const degreeY =
+      -90 + (mousePointerY * 90) / (document.body.clientHeight / 4);
 
     const resultX = 40 - degreeY * 5;
     const resultY = 5 + degreeX;
@@ -82,13 +90,13 @@ const useGestureHandle = () => {
       rgba(255, 119, 115) calc(5% * 7)
     ),
     repeating-linear-gradient(
-      145deg,
-      #0e152e 0%,
-      hsl(180, 10%, 60%) 3.8%,
-      hsl(180, 29%, 66%) 4.5%,
-      hsl(180, 10%, 60%) 5.2%,
-      #0e152e 10%,
-      #0e152e 12%
+        150deg,
+        #0e152e 0%,
+        hsl(180, 10%, 60%) 3.8%,
+        hsl(180, 29%, 66%) 4.5%,
+        hsl(180, 10%, 60%) 5.2%,
+        #0e152e 10% ,
+        #0e152e 12%
     ),
     radial-gradient(
       farthest-corner circle at ${resultX}% ${resultY}%,
@@ -100,10 +108,11 @@ const useGestureHandle = () => {
   const hologramPosition = useMemo(() => {
     const { mousePointerX, mousePointerY } = mousePointer;
 
-    const degreeX = 90 - (mousePointerX * 45) / document.body.clientWidth / 2;
-    const degreeY = 90 - (mousePointerY * 45) / document.body.clientHeight / 4;
+    const degreeX = 90 - (mousePointerX * 90) / (document.body.clientWidth / 2);
+    const degreeY =
+      -90 + (mousePointerY * 90) / (document.body.clientHeight / 4);
 
-    const positionX = `${50 + degreeX / 10 + degreeY}`;
+    const positionX = `${50 + degreeX / 10 + degreeY}%`;
     const positionY = `${50 + degreeY / 10 + degreeX / 10}%`;
 
     return `center center, 0% ${positionY}, ${positionX} ${positionY}, ${positionX} ${positionY}`;

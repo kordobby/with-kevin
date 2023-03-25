@@ -5,7 +5,7 @@ const SIZE = 209;
 
 const Profile = ({ children }: { children?: ReactNode }) => {
   return (
-    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient
           id="myGradient"
@@ -15,13 +15,13 @@ const Profile = ({ children }: { children?: ReactNode }) => {
           y2="104"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0%" stopColor="#e5ff00" />
-          <stop offset="25%" stopColor="#ff0396" />
-          <stop offset="50%" stopColor="#005eff" />
-          <stop offset="75%" stopColor="#00ff8c" />
+          <stop offset="20%" stopColor="#e5ff00" />
+          <stop offset="35%" stopColor="#ff0396" />
+          <stop offset="60%" stopColor="#005eff" />
+          <stop offset="90%" stopColor="#00ff8c" />
         </linearGradient>
       </defs>
-      <circle cx="50" cy="50" r="33" fill="url('#myGradient')" />
+      <circle cx="60" cy="60" r="33" fill="url('#myGradient')" />
     </svg>
   );
 };

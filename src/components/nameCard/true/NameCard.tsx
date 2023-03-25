@@ -1,15 +1,14 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import useShuffleTheme from "./hooks/useShuffleTheme";
 import useGestureHandle from "./hooks/useGestureHandle";
 import { VscGithubInverted } from "react-icons/vsc";
 import { MdEmail } from "react-icons/md";
 import ProfileContents from "./ProfileContents";
 import Profile from "./Profile";
-type CardTextType = "name" | "email" | "date";
 
 const NameCard = () => {
-  const { shuffleColors, bgColor } = useShuffleTheme();
+  const { bgColor } = useShuffleTheme();
   const {
     moveDynamic,
     clearTransform,
@@ -20,7 +19,6 @@ const NameCard = () => {
     hologramFilter,
   } = useGestureHandle();
 
-  // console.log(hologramEffect());
   return (
     <>
       <CardRoot onMouseMove={moveDynamic} onMouseLeave={clearTransform}>
@@ -105,15 +103,15 @@ const CardGlow = styled.div`
 const HologramGlow = styled.img`
   z-index: 2;
   mask-image: url(https://assets.codepen.io/13471/sparkles.gif);
-  width: 212px;
-  height: 212px;
+  width: 177px;
+  height: 177px;
   border-radius: 300px;
   background-size: 50% 42%, 200% 700%, 300% 100%, 200% 100%;
   background-blend-mode: screen, difference, normal;
   opacity: 0.2;
 
   position: absolute;
-  top: 61.1%;
+  top: 61.12%;
   left: 50%;
   transform: translate(-50%, calc(-50% - 4px));
   /* background-image: radial-gradient(circle at 50% -20%, #4bf5f213, #020a3a4d); */
@@ -126,6 +124,6 @@ const ProfileRoot = styled.div`
   position: relative;
   height: 213px;
   padding-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   /* border: 1px solid red; */
 `;
