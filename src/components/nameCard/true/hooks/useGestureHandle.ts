@@ -14,17 +14,15 @@ const useGestureHandle = () => {
       const topY = mousePointerY - bounds.y;
       const cardX = leftX - bounds.width / 2; // (-139 ~ 139)
       const cardY = topY - bounds.height / 2; // (-240 ~ 240)
-      const cardRotateX = cardX / 100;
+      const cardRotateX = (cardX * -1) / 100;
       const cardRotateY = cardY / 100;
 
       setCardX(cardX);
       setCardY(cardY);
       gsap.to(cardElement, {
-        scale: 1.07,
-        rotateX: cardRotateX * 5,
-        rotateY: cardRotateY * 5,
-        skewX: cardRotateX,
-        skewY: cardRotateY,
+        scale: 1.05,
+        rotateX: cardRotateY * 5,
+        rotateY: cardRotateX * 5,
       });
     }
   };
@@ -35,8 +33,6 @@ const useGestureHandle = () => {
         scale: 1,
         rotateX: 0,
         rotateY: 0,
-        skewX: 0,
-        skewY: 0,
       });
       setCardX(0);
       setCardY(0);

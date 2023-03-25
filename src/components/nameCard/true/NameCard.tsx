@@ -41,11 +41,12 @@ export default NameCard;
 const CardRoot = styled.div`
   /* For CardGlow Effect */
   position: relative;
+  perspective: 800;
 `;
 
 const Card = styled.div<{ bgColor: string }>`
-  width: 280px;
-  height: 480px;
+  width: 320px;
+  height: 490px;
   border: 1px solid white;
   border-radius: 12px;
 
