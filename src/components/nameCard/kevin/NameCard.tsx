@@ -24,7 +24,7 @@ export default function NameCard() {
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
         <Box position={[0, 0, 0]} />
-        <OrbitControls />
+        {/* <OrbitControls /> */}
       </Canvas>
     </NameCardWrapper>
   );
