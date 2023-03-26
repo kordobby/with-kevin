@@ -105,7 +105,7 @@ const HologramGlow = styled.img`
   width: 177px;
   height: 177px;
   border-radius: 300px;
-  background-size: 50% 42%, 200% 700%, 300% 100%, 200% 100%;
+  background-size: 130% 240%, 200% 700%, 300% 100%, 200% 100%;
   background-blend-mode: screen, difference, normal;
   opacity: 0.2;
 

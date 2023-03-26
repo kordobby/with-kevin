@@ -17,7 +17,7 @@ const Profile = ({ children }: { children?: ReactNode }) => {
     ["#aa00ff", "#cf99ff", "#0033ff", "#0b006d"],
     ["#1c005e", "#00e5ff", "#0055ff", "#004379"],
     ["#ffd500", "#73ff00", "#e5ff00", "#00c274"],
-    ["#c11db1", "#f2ff00", "#ff0099", "#ff98fa"],
+    ["#ff23e9", "#f2ff00", "#ff0099", "#ff98fa"],
     ["#f6ff00", "#fffb00", "#48ff00", "#00bfff"],
     // ["#e5ff00", "#ff0396", "#005eff", "#00ff8c"],
   ];
