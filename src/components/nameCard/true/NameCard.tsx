@@ -17,7 +17,6 @@ const NameCard = () => {
     hologramEffect,
     hologramPosition,
     hologramFilter,
-    mouseOver,
   } = useGestureHandle();
 
   return (
@@ -49,7 +48,6 @@ const NameCard = () => {
             </ProfileContents>
           </CardContents>
           <CardGlow style={{ backgroundImage: glowEffect }} />
-          {/* <HologramGlow /> */}
         </Card>
       </CardRoot>
     </>

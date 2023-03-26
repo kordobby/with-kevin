@@ -1,13 +1,13 @@
-import Contents from "../../components/layout/true/Contents";
-import Layout from "../../components/layout/true/Layout";
+import Layout, { LayoutContext } from "../../components/layout/true/Layout";
 import Title from "../../components/layout/true/Title";
 import NameCard from "../../components/nameCard/true/NameCard";
 
 const NameCardTemplate = () => {
   return (
     <Layout>
-      <Title>NameCard</Title>
-      <Title types="subtitle">NameCard</Title>
+      <Title>Dynamic Card</Title>
+      <Title types="subtitle">Leetrue Version</Title>
+      <Title types="desc">2023.03.25.</Title>
       <NameCard />
     </Layout>
   );

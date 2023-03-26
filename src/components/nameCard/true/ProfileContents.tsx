@@ -1,3 +1,4 @@
+import Layout, { LayoutContext } from "@/components/layout/true/Layout";
 import { FC, ReactNode } from "react";
 import styled, { css } from "styled-components";
 
@@ -14,20 +15,39 @@ const ProfileContents: FC<ProfileContentsProps> = ({
   icon,
   children,
 }) => {
+  const textPalette = ["#4650de", "#0073ff", "#00bd91", "#ff5da9", "#98cb00"];
+  //   const textPalette = ["#4650de", "black", "white", "black", "white"];
+
   return (
-    <ProfileContentsWrapper types={types}>
-      {icon}
-      <ProfileContentsText icon={Boolean(icon)}>{children}</ProfileContentsText>
-    </ProfileContentsWrapper>
+    <>
+      <LayoutContext.Consumer>
+        {(value) => (
+          <ProfileContentsWrapper
+            types={types}
+            textColor={textPalette[`${value}`]}
+          >
+            {icon}
+            <ProfileContentsText icon={Boolean(icon)}>
+              {children}
+            </ProfileContentsText>
+          </ProfileContentsWrapper>
+        )}
+      </LayoutContext.Consumer>
+    </>
   );
 };
 
 export default ProfileContents;
 
-const ProfileContentsWrapper = styled.div<{ types: CardTextType }>`
+const ProfileContentsWrapper = styled.div<{
+  types: CardTextType;
+  textColor?: string;
+}>`
   display: flex;
   align-items: center;
-  color: #4650de;
+  color: ${({ textColor }) => textColor ?? "white"};
+
+  /* color: #4650de; */
   ${({ types }) => {
     switch (types) {
       case "name":
@@ -49,7 +69,6 @@ const ProfileContentsWrapper = styled.div<{ types: CardTextType }>`
           font-size: 14px;
           margin-top: 4px;
           font-weight: 600;
-          color: #4650dec5;
         `;
       default:
         return css``;
