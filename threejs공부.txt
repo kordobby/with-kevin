@@ -1,0 +1,35 @@
+# React + Three ts
+
+# 설치
+- yarn add three @react-three/fiber
+- yarn add @types/three -D
+
+# Canvas
+- Canvas 태그안에서 모든게 구현 되어야함.
+- 스케치북의 종이와도 같은 친구다.
+- Canvas 태그의 크기는 그 밖에 div태그를 주어서 조절 가능
+
+- Canvas tag는 기본적으로 아래처럼 사용한다. 
+- camera의 포지션을 정하고, 카메라로부터 얼마나 떨어져서 볼지 fov를 정한다.
+
+```js
+    <Canvas camera={{ position: [5, 5, 5], fov: 25 }}>
+	// 여기에 내가 사용할 기타 컴포넌트들이 온다.      
+    </Canvas>
+```
+
+# Light
+- AmbientLight - 모든 오브젝트를 전역으로 빛을 비춰줍니다. 이 빛은 그림자가 생기지 않습니다.
+- DirectionalLight - 특정 방향으로 빛을 방출합니다.(예시. 태양) 이 빛은 그림자가 생길 수 있습니다.
+- HemisphereLight - 하늘색? 지상색? 장면 바로 위에서 광원을 방출합니다. 이 빛은 그림자가 생기지 않습니다.
+- PointLight - 한 방향으로 빛을 방출합니다.(예시. 전구)
+- RectAreaLight - 직사각형 평면에 균일하게 빛을 방출합니다.
+- SpotLight - 원뿔 모양에 따라 빛의 방출 합니다. 이 빛은 그림자가 생길 수 있습니다.
+
+- 사용예시 AmbientLight 로 빛의 강도를 정하고, DirectionalLight 로 해의 위치를 정한다 보통
+```js
+ <ambientLight intensity={0.5} />
+ <directionalLight position={[10, 10, 5]} />
+```
+
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCsDyGgYhhLuid2LrWPEMnMzr9nQkxRCGF6-hRgBr4&s
