@@ -21,6 +21,7 @@ const TitleWrapper = styled.div<{ types: TitleType }>`
     switch (types) {
       case "main":
         return css`
+          margin-top: 100px;
           font-weight: 700;
           font-size: 2rem;
         `;
@@ -33,6 +34,7 @@ const TitleWrapper = styled.div<{ types: TitleType }>`
         return css`
           font-weight: 500;
           font-size: 1.2rem;
+          margin-bottom: 40px;
         `;
       default:
         return;

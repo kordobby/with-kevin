@@ -1,5 +1,5 @@
 const NameCard = () => {
-  return <>카드</>;
+  return <></>;
 };
 
 export default NameCard;
