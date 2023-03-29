@@ -26,6 +26,9 @@ const Card = styled.div<{ rotateX: number; rotateY: number }>`
   transition: transform 0.5s;
   transform: ${({ rotateX, rotateY }) =>
     `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`};
+  &:hover {
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+  }
 `;
 
 const CardShadow = styled.div`
