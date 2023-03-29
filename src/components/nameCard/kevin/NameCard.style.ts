@@ -56,17 +56,20 @@ const CardInner = styled.div`
     align-items: center;
     justify-content: center;
   }
+
   /* icon */
-  .flex-row {
-    div {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
   }
+
   .card__Inner-BorderBox {
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 50%;
     height: 50%;
     border: 10px solid #fff;
@@ -78,6 +81,9 @@ const CardInner = styled.div`
     animation: ${CardInnerBoxAnimation} 0.5s ease-in forwards;
     width: 80%;
     height: 90%;
+    .icon {
+      opacity: 0;
+    }
   }
   &:not(:hover) .card__Inner-BorderBox {
     animation: ${CardInnerBoxAnimationOpposite} 0.5s ease-in forwards;
@@ -88,7 +94,6 @@ const CardInner = styled.div`
   .card__Inner-HideBox {
     opacity: 0;
   }
-
   &:hover .card__Inner-HideBox {
     animation: ${fadeIn} 0.5s ease-in forwards;
   }
