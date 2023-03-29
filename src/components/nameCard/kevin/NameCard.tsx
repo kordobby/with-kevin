@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { VscGithubInverted } from "react-icons/vsc";
+import { MdEmail } from "react-icons/md";
 
 const NameCard = () => {
   const [rotateX, setRotateX] = useState(0);
@@ -26,8 +28,22 @@ const NameCard = () => {
       <Card rotateX={rotateX} rotateY={rotateY}>
         <CardShadow />
         <CardInner>
-          <CardTitle>케빈킴</CardTitle>
-          <CardSubtitle>Dev</CardSubtitle>
+          <div className="flex-col">
+            <CardTitle>케빈킴</CardTitle>
+            <CardSubtitle>Dev</CardSubtitle>
+            <div className="flex-row">
+              <CardDesc>
+                <VscGithubInverted size={20} />
+                kevinkim910408
+              </CardDesc>
+            </div>
+            <div className="flex-row">
+              <CardDesc>
+                <MdEmail size={20} />
+                kjunho.dev@gmail.com
+              </CardDesc>
+            </div>
+          </div>
         </CardInner>
       </Card>
     </CardContainer>
@@ -72,19 +88,40 @@ const CardInner = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-
   width: 100%;
   height: 100%;
   justify-content: center;
   align-items: center;
+
+  .flex-col {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  /* icon */
+  .flex-row {
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+  }
 `;
 
 const CardTitle = styled.div`
   color: white;
-  font-size: 24px;
+  font-size: 1.8rem;
+  font-weight: 700;
 `;
 
 const CardSubtitle = styled.div`
   color: white;
-  font-size: 18px;
+  font-size: 1.3rem;
+`;
+
+const CardDesc = styled.div`
+  color: white;
 `;
