@@ -28,10 +28,13 @@ const NameCard = () => {
       <Card rotateX={rotateX} rotateY={rotateY}>
         <CardShadow />
         <CardInner>
+          <ProfileBox>
+            <ProfilePic />
+          </ProfileBox>
           <div className="flex-col">
             <CardTitle>케빈킴</CardTitle>
             <CardSubtitle>Dev</CardSubtitle>
-            <div className="flex-row">
+            <div className="flex-row" style={{ marginTop: "30px" }}>
               <CardDesc>
                 <VscGithubInverted size={20} />
                 kevinkim910408
@@ -94,7 +97,6 @@ const CardInner = styled.div`
   align-items: center;
 
   .flex-col {
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -109,6 +111,23 @@ const CardInner = styled.div`
       gap: 10px;
     }
   }
+`;
+
+const ProfileBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 213px;
+  padding-top: 50px;
+  margin-bottom: 20px;
+`;
+
+const ProfilePic = styled.div`
+  width: 150px;
+  height: 150px;
+  background: red;
+  border-radius: 100%;
 `;
 
 const CardTitle = styled.div`
