@@ -77,7 +77,7 @@ const CardInner = styled.div`
     transform-origin: center;
     transition: transform 0.5s ease, width 0.5s ease, height 0.5s ease;
   }
-  &:hover .card__Inner-BorderBox {
+  /* &:hover .card__Inner-BorderBox {
     animation: ${CardInnerBoxAnimation} 0.5s ease-in forwards;
     width: 80%;
     height: 90%;
@@ -89,17 +89,17 @@ const CardInner = styled.div`
     animation: ${CardInnerBoxAnimationOpposite} 0.5s ease-in forwards;
     width: 50%;
     height: 50%;
-  }
+  } */
 
   .card__Inner-HideBox {
-    opacity: 0;
+    /* opacity: 0; */
   }
-  &:hover .card__Inner-HideBox {
+  /* &:hover .card__Inner-HideBox {
     animation: ${fadeIn} 0.5s ease-in forwards;
   }
   &:not(:hover) .card__Inner-HideBox {
     animation: ${fadeOut} 0.5s ease-in forwards;
-  }
+  } */
 `;
 
 const ProfileBox = styled.div`

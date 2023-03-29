@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useState, MouseEvent } from "react";
 import { VscGithubInverted } from "react-icons/vsc";
 import { MdEmail } from "react-icons/md";
 import * as style from "./NameCard.style";
 import { MdEmojiPeople } from "react-icons/md";
 
 const NameCard = () => {
-  const [rotateX, setRotateX] = useState(0);
-  const [rotateY, setRotateY] = useState(0);
+  const [rotateX, setRotateX] = useState<number>(0);
+  const [rotateY, setRotateY] = useState<number>(0);
+  const [isTilted, setIsTilted] = useState<boolean>(false);
 
-  const tiltEffect = (e: React.MouseEvent<HTMLDivElement>) => {
+  const tiltEffect = (e: MouseEvent<HTMLDivElement>): void => {
+    setIsTilted(true);
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
 
@@ -18,7 +20,8 @@ const NameCard = () => {
     setRotateY(offsetX);
   };
 
-  const resetTiltEffect = () => {
+  const resetTiltEffect = (): void => {
+    setIsTilted(false);
     setRotateX(0);
     setRotateY(0);
   };
@@ -31,10 +34,16 @@ const NameCard = () => {
       <style.Card rotateX={rotateX} rotateY={rotateY}>
         <style.CardShadow />
         <style.CardInner>
-          <div className="card__Inner-BorderBox">
+          <div
+            className="card__Inner-BorderBox"
+            style={{ display: isTilted ? "none" : "flex" }}
+          >
             <MdEmojiPeople size={80} color="white" className="icon" />
           </div>
-          <div className="card__Inner-HideBox">
+          <div
+            className="card__Inner-HideBox"
+            style={{ display: isTilted ? "block" : "none" }}
+          >
             <style.ProfileBox>
               <style.ProfilePic />
             </style.ProfileBox>
