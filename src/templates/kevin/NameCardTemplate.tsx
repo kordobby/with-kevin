@@ -4,7 +4,7 @@ import NameCard from "@/components/nameCard/kevin/NameCard";
 
 const NameCardTemplate = () => {
   return (
-    <Layout>
+    <Layout light>
       <Title types="main">Dynamic Card</Title>
       <Title types="sub">Kevin Kim Version</Title>
       <Title types="desc">2023.03.30.</Title>

@@ -1,13 +1,18 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import BG from "@/assets/black.svg";
-import { LayoutCenteredWrapper, LayoutInnerWrapper, LayoutWrapper } from "./Layout.style";
+import {
+  LayoutCenteredWrapper,
+  LayoutInnerWrapper,
+  LayoutWrapper,
+} from "./Layout.style";
 
 interface LayoutInterface {
   children: React.ReactNode;
+  light?: boolean;
 }
 
-const Layout = ({ children }: LayoutInterface) => {
+const Layout = ({ children, light }: LayoutInterface) => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -23,11 +28,21 @@ const Layout = ({ children }: LayoutInterface) => {
   };
 
   return (
-    <LayoutWrapper mousePos={mousePos}>
-      <LayoutCenteredWrapper>
-        <LayoutInnerWrapper>{children}</LayoutInnerWrapper>
-      </LayoutCenteredWrapper>
-    </LayoutWrapper>
+    <>
+      {light ? (
+        <LayoutWrapper mousePos={mousePos}>
+          <LayoutCenteredWrapper>
+            <LayoutInnerWrapper>{children}</LayoutInnerWrapper>
+          </LayoutCenteredWrapper>
+        </LayoutWrapper>
+      ) : (
+        <LayoutWrapper>
+          <LayoutCenteredWrapper>
+            <LayoutInnerWrapper>{children}</LayoutInnerWrapper>
+          </LayoutCenteredWrapper>
+        </LayoutWrapper>
+      )}
+    </>
   );
 };
 
