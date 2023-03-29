@@ -26,8 +26,8 @@ const NameCard = () => {
       <Card rotateX={rotateX} rotateY={rotateY}>
         <CardShadow />
         <CardInner>
-          <CardTitle>Name</CardTitle>
-          <CardSubtitle>Title</CardSubtitle>
+          <CardTitle>케빈킴</CardTitle>
+          <CardSubtitle>Dev</CardSubtitle>
         </CardInner>
       </Card>
     </CardContainer>
@@ -70,20 +70,21 @@ const CardShadow = styled.div`
 
 const CardInner = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
+
   width: 100%;
   height: 100%;
-  display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-const CardTitle = styled.h2`
+const CardTitle = styled.div`
   color: white;
   font-size: 24px;
 `;
 
-const CardSubtitle = styled.p`
+const CardSubtitle = styled.div`
   color: white;
   font-size: 18px;
-  margin-top: 8px;
 `;
