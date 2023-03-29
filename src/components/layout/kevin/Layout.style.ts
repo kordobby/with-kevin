@@ -31,7 +31,7 @@ export const LayoutWrapper = styled.div<LayoutWrapperInterface>`
     border-radius: 50%;
     box-shadow: 0 0 50px 50px rgba(255, 255, 255, 0.5);
     pointer-events: none;
-    z-index: 1;
+    /* z-index: 1; */
     transition: all 0.3s ease-out;
     transform: translate(-50%, -50%) scale(0);
   }
