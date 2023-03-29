@@ -70,6 +70,7 @@ const CardInner = styled.div`
     width: 50%;
     height: 50%;
     border: 10px solid #fff;
+    border-radius: 12px;
     transform-origin: center;
     transition: transform 0.5s ease, width 0.5s ease, height 0.5s ease;
   }
