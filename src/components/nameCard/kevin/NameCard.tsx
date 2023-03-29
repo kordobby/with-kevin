@@ -12,8 +12,8 @@ const NameCard = () => {
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
 
-    const offsetX = -(rect.left + rect.width / 2 - e.clientX) / 20;
-    const offsetY = (rect.top + rect.height / 2 - e.clientY) / 20;
+    const offsetX = (rect.left + rect.width / 2 - e.clientX) / 10;
+    const offsetY = -(rect.top + rect.height / 2 - e.clientY) / 10;
     setRotateX(offsetY);
     setRotateY(offsetX);
   };
