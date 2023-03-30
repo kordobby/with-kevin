@@ -33,17 +33,11 @@ const NameCard = () => {
     >
       <style.Card rotateX={rotateX} rotateY={rotateY}>
         <style.CardShadow />
-        <style.CardInner>
-          <div
-            className="card__Inner-BorderBox"
-            style={{ display: isTilted ? "none" : "flex" }}
-          >
-            <MdEmojiPeople size={80} color="white" className="icon" />
+        <style.CardInner isTilted={isTilted}>
+          <div className="card__Inner-BorderBox">
+            <MdEmojiPeople size={80} color="white" className="icon mainIcon" />
           </div>
-          <div
-            className="card__Inner-HideBox"
-            style={{ display: isTilted ? "block" : "none" }}
-          >
+          <div className="card__Inner-HideBox">
             <style.ProfileBox>
               <style.ProfilePic />
             </style.ProfileBox>

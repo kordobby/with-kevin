@@ -41,7 +41,7 @@ const CardShadow = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 `;
 
-const CardInner = styled.div`
+const CardInner = styled.div<{ isTilted: boolean }>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -64,6 +64,9 @@ const CardInner = styled.div`
     justify-content: center;
     gap: 10px;
   }
+  .mainIcon {
+    display: ${(props) => (props.isTilted ? "none" : "block")};
+  }
 
   .card__Inner-BorderBox {
     position: absolute;
@@ -74,11 +77,12 @@ const CardInner = styled.div`
     height: 50%;
     border: 10px solid #fff;
     border-radius: 12px;
-    transform-origin: center;
-    transition: transform 0.5s ease, width 0.5s ease, height 0.5s ease;
+    animation: ${(props) =>
+        props.isTilted ? CardInnerBoxAnimation : CardInnerBoxAnimationOpposite}
+      0.5s ease-in forwards;
   }
   /* &:hover .card__Inner-BorderBox {
-    animation: ${CardInnerBoxAnimation} 0.5s ease-in forwards;
+    
     width: 80%;
     height: 90%;
     .icon {
@@ -92,6 +96,8 @@ const CardInner = styled.div`
   } */
 
   .card__Inner-HideBox {
+    animation: ${(props) => (props.isTilted ? fadeIn : fadeOut)} 0.5s ease-in
+      forwards;
     /* opacity: 0; */
   }
   /* &:hover .card__Inner-HideBox {
