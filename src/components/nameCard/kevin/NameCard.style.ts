@@ -118,10 +118,10 @@ const ProfileBox = styled.div`
   margin-bottom: 20px;
 `;
 
-const ProfilePic = styled.div`
+const ProfilePic = styled.div<{ bgColor: string }>`
   width: 150px;
   height: 150px;
-  background: #fff;
+  background: ${(props) => props.bgColor || "#fff"};
   border-radius: 100%;
   border: 5px solid #000;
 `;

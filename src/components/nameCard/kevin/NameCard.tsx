@@ -18,6 +18,7 @@ const NameCard = () => {
     const offsetY = -(rect.top + rect.height / 2 - e.clientY) / 10;
     setRotateX(offsetY);
     setRotateY(offsetX);
+    setBgColor(getRandomColor());
   };
 
   const resetTiltEffect = (): void => {
@@ -25,6 +26,13 @@ const NameCard = () => {
     setRotateX(0);
     setRotateY(0);
   };
+
+  const getRandomColor = () => {
+    const colors = ["#FF5733", "#DAF7A6", "#FFC300", "#C70039"];
+    return colors[Math.floor(Math.random() * colors.length)];
+  };
+
+  const [bgColor, setBgColor] = useState("#fff");
 
   return (
     <style.CardContainer
@@ -39,7 +47,7 @@ const NameCard = () => {
           </div>
           <div className="card__Inner-HideBox">
             <style.ProfileBox>
-              <style.ProfilePic />
+              <style.ProfilePic bgColor={bgColor} />
             </style.ProfileBox>
             <div className="flex-col">
               <style.CardTitle>케빈킴</style.CardTitle>
