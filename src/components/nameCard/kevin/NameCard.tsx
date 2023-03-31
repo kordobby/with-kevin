@@ -96,7 +96,7 @@ const NameCard = () => {
                   케빈킴
                 </style.TitleWrapper>
                 <style.TitleWrapper types="sub" bgColor={bgColor}>
-                  Dev
+                  Developer
                 </style.TitleWrapper>
                 <div className="icon" style={{ marginTop: "30px" }}>
                   <style.TitleWrapper types="desc" bgColor={bgColor}>

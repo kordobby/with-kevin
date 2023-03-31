@@ -144,9 +144,10 @@ const TitleWrapper = styled.div<{ types: TitleType; bgColor: string }>`
         `;
       case "desc":
         return css`
-          font-weight: 500;
-          font-size: 1.2rem;
-          margin-bottom: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
         `;
       default:
         return;
