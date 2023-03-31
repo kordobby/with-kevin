@@ -10,6 +10,7 @@ const NameCard = () => {
   const [isTilted, setIsTilted] = useState<boolean>(false);
   const [bgColor, setBgColor] = useState<string>("#fff");
   const [lastColor, setLastColor] = useState<string>("");
+  const [profileColor, setProfileColor] = useState<string>("");
 
   const tiltEffect = (e: MouseEvent<HTMLDivElement>): void => {
     setIsTilted(true);
@@ -38,12 +39,24 @@ const NameCard = () => {
       "#9B59B6",
       "#1ABC9C",
     ];
+    const gradients = [
+      "linear-gradient(to right, #FF5733, #DAF7A6)",
+      "linear-gradient(to right, #DAF7A6, #FFC300)",
+      "linear-gradient(to right, #FFC300, #AED6F1)",
+      "linear-gradient(to right, #AED6F1, #3498DB)",
+      "linear-gradient(to right, #3498DB, #9B59B6)",
+      "linear-gradient(to right, #9B59B6, #1ABC9C)",
+    ];
     let color = colors[Math.floor(Math.random() * colors.length)];
+    let gradient = gradients[Math.floor(Math.random() * gradients.length)];
 
     while (color === lastColor) {
       color = colors[Math.floor(Math.random() * colors.length)];
     }
-
+    while (gradient === profileColor) {
+      gradient = gradients[Math.floor(Math.random() * colors.length)];
+    }
+    setProfileColor(gradient);
     setLastColor(color);
     return color;
   };
@@ -71,7 +84,7 @@ const NameCard = () => {
             </div>
             <div className="card__Inner-HideBox">
               <style.ProfileBox>
-                <style.ProfilePic bgColor={bgColor} />
+                <style.ProfilePic bgColor={profileColor} />
               </style.ProfileBox>
               <div className="flex-col">
                 <style.TitleWrapper types="main" bgColor={bgColor}>

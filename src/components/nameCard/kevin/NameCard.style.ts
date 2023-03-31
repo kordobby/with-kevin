@@ -90,52 +90,34 @@ const CardInner = styled.div<{ isTilted: boolean; bgColor: string }>`
         props.isTilted ? CardInnerBoxAnimation : CardInnerBoxAnimationOpposite}
       0.5s ease-in forwards;
   }
-  /* &:hover .card__Inner-BorderBox {
-    
-    width: 80%;
-    height: 90%;
-    .icon {
-      opacity: 0;
-    }
-  }
-  &:not(:hover) .card__Inner-BorderBox {
-    animation: ${CardInnerBoxAnimationOpposite} 0.5s ease-in forwards;
-    width: 50%;
-    height: 50%;
-  } */
 
   .card__Inner-HideBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     animation: ${(props) => (props.isTilted ? fadeIn : fadeOut)} 0.5s ease-in
       forwards;
-    /* opacity: 0; */
   }
-  /* &:hover .card__Inner-HideBox {
-    animation: ${fadeIn} 0.5s ease-in forwards;
-  }
-  &:not(:hover) .card__Inner-HideBox {
-    animation: ${fadeOut} 0.5s ease-in forwards;
-  } */
 `;
 
 const ProfileBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 213px;
-  padding-top: 50px;
+  width: 150px;
+  height: 150px;
   margin-bottom: 20px;
+  border-radius: 100%;
+  border: 5px solid #000;
+  z-index: 9999;
+  overflow: hidden;
 `;
 
 const ProfilePic = styled.div<{ bgColor: string }>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 150px;
-  height: 150px;
+  width: 500px;
+  height: 500px;
   background: ${(props) => props.bgColor};
-  border-radius: 100%;
-  border: 5px solid #000;
 `;
 
 type TitleType = "main" | "sub" | "desc";
