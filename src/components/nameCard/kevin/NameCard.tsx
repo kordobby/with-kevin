@@ -33,14 +33,9 @@ const NameCard = () => {
       "#FF5733",
       "#DAF7A6",
       "#FFC300",
-      "#F4D03F",
       "#AED6F1",
-      "#E74C3C",
       "#3498DB",
       "#9B59B6",
-      "#D35400",
-      "#00B16A",
-      "#F7DC6F",
       "#1ABC9C",
     ];
     let color = colors[Math.floor(Math.random() * colors.length)];
