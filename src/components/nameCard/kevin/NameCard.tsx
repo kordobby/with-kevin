@@ -1,30 +1,11 @@
 import { useState, MouseEvent } from "react";
 import { VscGithubInverted } from "react-icons/vsc";
-import { MdEmail } from "react-icons/md";
+import { MdEmail, MdEmojiPeople } from "react-icons/md";
+import { colors, gradients } from "./Colors";
 import * as style from "./NameCard.style";
-import { MdEmojiPeople } from "react-icons/md";
-
-const colors = [
-  "#FF5733",
-  "#DAF7A6",
-  "#FFC300",
-  "#AED6F1",
-  "#3498DB",
-  "#9B59B6",
-  "#1ABC9C",
-];
-const gradients = [
-  "linear-gradient(to bottom left, #FF5733, #FF8D33, #DAF7A6, #C5FFA6, #FFC300, #FFE433, #AED6F1, #9BBFF1, #3498DB)",
-  "linear-gradient(to bottom left, #DAF7A6, #D0F7A6, #FFC300, #FFE433, #AED6F1, #B6C8F1, #3498DB, #4D4DD1, #9B59B6)",
-  "linear-gradient(to bottom left, #FFC300, #FFE433, #AED6F1, #B6C8F1, #3498DB, #3A68E7, #9B59B6, #D459A2, #EC7063)",
-  "linear-gradient(to bottom left, #AED6F1, #B6C8F1, #3498DB, #3A68E7, #9B59B6, #C259B6, #FF5733, #FF5B5E, #F1948A)",
-  "linear-gradient(to bottom left, #3498DB, #3A68E7, #9B59B6, #C259B6, #FF5733, #FF334B, #FF8D33, #FFA333, #FFC300)",
-  "linear-gradient(to bottom left, #9B59B6, #C259B6, #FF5733, #FF334B, #FF8D33, #FF5733, #1ABC9C, #33FFA3, #70FFC2)",
-];
 
 const NameCard = () => {
-  const [rotateX, setRotateX] = useState<number>(0);
-  const [rotateY, setRotateY] = useState<number>(0);
+  const [tilt, setTilt] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const [isTilted, setIsTilted] = useState<boolean>(false);
   const [bgColor, setBgColor] = useState<string>("#fff");
   const [lastColor, setLastColor] = useState<string>("");
@@ -34,46 +15,53 @@ const NameCard = () => {
     setIsTilted(true);
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
-
-    const offsetX = (rect.left + rect.width / 2 - e.clientX) / 10;
-    const offsetY = -(rect.top + rect.height / 2 - e.clientY) / 10;
-    setRotateX(offsetY);
-    setRotateY(offsetX);
+    setTilt({
+      x: (rect.left + rect.width / 2 - e.clientX) / 10,
+      y: (rect.top + rect.height / 2 - e.clientY) / 10,
+    });
   };
 
   const resetTiltEffect = (): void => {
     setIsTilted(false);
-    setRotateX(0);
-    setRotateY(0);
+    setTilt({
+      x: 0,
+      y: 0,
+    });
+  };
+
+  const getRandomIndex = (length: number, exclude: number): number => {
+    let index = Math.floor(Math.random() * length);
+    while (index === exclude) {
+      index = Math.floor(Math.random() * length);
+    }
+    return index;
   };
 
   const getRandomColor = () => {
-    let color = colors[Math.floor(Math.random() * colors.length)];
-    let gradient = gradients[Math.floor(Math.random() * gradients.length)];
-
-    while (color === lastColor) {
-      color = colors[Math.floor(Math.random() * colors.length)];
-    }
-    while (gradient === profileColor) {
-      gradient = gradients[Math.floor(Math.random() * colors.length)];
-    }
-    setProfileColor(gradient);
+    const colorIndex = getRandomIndex(colors.length, colors.indexOf(lastColor));
+    const gradientIndex = getRandomIndex(
+      gradients.length,
+      gradients.indexOf(profileColor)
+    );
+    const color = colors[colorIndex];
+    const gradient = gradients[gradientIndex];
     setLastColor(color);
+    setProfileColor(gradient);
     return color;
   };
 
-  const profileColorChange = () => {
+  const colorChange = () => {
     setBgColor(getRandomColor());
   };
 
   return (
     <style.Wrapper>
-      <button onClick={profileColorChange}>Click Me!</button>
+      <button onClick={colorChange}>Click Me!</button>
       <style.CardContainer
         onMouseMove={tiltEffect}
         onMouseLeave={resetTiltEffect}
       >
-        <style.Card rotateX={rotateX} rotateY={rotateY} bgColor={bgColor}>
+        <style.Card rotateX={tilt.x} rotateY={tilt.y} bgColor={bgColor}>
           <style.CardShadow />
           <style.CardInner isTilted={isTilted} bgColor={bgColor}>
             <div className="card__Inner-BorderBox">
@@ -87,8 +75,8 @@ const NameCard = () => {
               <style.ProfileBox>
                 <style.ProfilePic
                   bgColor={profileColor}
-                  rotateX={rotateX}
-                  rotateY={rotateY}
+                  rotateX={tilt.x}
+                  rotateY={tilt.y}
                 />
               </style.ProfileBox>
               <div className="flex-col">

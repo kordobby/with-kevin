@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import styled from "styled-components";
-import BG from "@/assets/black.svg";
 import {
   LayoutCenteredWrapper,
   LayoutInnerWrapper,
