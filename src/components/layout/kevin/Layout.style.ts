@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import BG from "@/assets/black.svg";
+import { Resolution } from "@/utils/Common";
 
 interface LayoutWrapperInterface {
   mousePos?: { x: number; y: number };
@@ -7,7 +8,6 @@ interface LayoutWrapperInterface {
 
 export const LayoutWrapper = styled.div<LayoutWrapperInterface>`
   position: relative;
-  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
