@@ -8,7 +8,8 @@ const NameCard = () => {
   const [rotateX, setRotateX] = useState<number>(0);
   const [rotateY, setRotateY] = useState<number>(0);
   const [isTilted, setIsTilted] = useState<boolean>(false);
-  const [bgColor, setBgColor] = useState("#fff");
+  const [bgColor, setBgColor] = useState<string>("#fff");
+  const [lastColor, setLastColor] = useState<string>("");
 
   const tiltEffect = (e: MouseEvent<HTMLDivElement>): void => {
     setIsTilted(true);
@@ -42,7 +43,14 @@ const NameCard = () => {
       "#F7DC6F",
       "#1ABC9C",
     ];
-    return colors[Math.floor(Math.random() * colors.length)];
+    let color = colors[Math.floor(Math.random() * colors.length)];
+
+    while (color === lastColor) {
+      color = colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    setLastColor(color);
+    return color;
   };
 
   const profileColorChange = () => {
@@ -65,8 +73,13 @@ const NameCard = () => {
             />
           </div>
           <div className="card__Inner-HideBox">
-            <style.ProfileBox onMouseEnter={profileColorChange}>
-              <style.ProfilePic bgColor={bgColor} />
+            <style.ProfileBox>
+              <style.ProfilePic
+                bgColor={bgColor}
+                onMouseEnter={profileColorChange}
+              >
+                Hover Me!
+              </style.ProfilePic>
             </style.ProfileBox>
             <div className="flex-col">
               <style.TitleWrapper types="main" bgColor={bgColor}>

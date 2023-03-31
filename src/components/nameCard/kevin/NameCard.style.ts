@@ -119,6 +119,9 @@ const ProfileBox = styled.div`
 `;
 
 const ProfilePic = styled.div<{ bgColor: string }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 150px;
   height: 150px;
   background: ${(props) => props.bgColor};
