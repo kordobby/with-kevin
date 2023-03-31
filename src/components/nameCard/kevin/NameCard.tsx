@@ -58,53 +58,51 @@ const NameCard = () => {
   };
 
   return (
-    <style.CardContainer
-      onMouseMove={tiltEffect}
-      onMouseLeave={resetTiltEffect}
-    >
-      <style.Card rotateX={rotateX} rotateY={rotateY}>
-        <style.CardShadow />
-        <style.CardInner isTilted={isTilted} bgColor={bgColor}>
-          <div className="card__Inner-BorderBox">
-            <MdEmojiPeople
-              size={80}
-              color={bgColor}
-              className="icon mainIcon"
-            />
-          </div>
-          <div className="card__Inner-HideBox">
-            <style.ProfileBox>
-              <style.ProfilePic
-                bgColor={bgColor}
-                onMouseEnter={profileColorChange}
-              >
-                Hover Me!
-              </style.ProfilePic>
-            </style.ProfileBox>
-            <div className="flex-col">
-              <style.TitleWrapper types="main" bgColor={bgColor}>
-                케빈킴
-              </style.TitleWrapper>
-              <style.TitleWrapper types="sub" bgColor={bgColor}>
-                Dev
-              </style.TitleWrapper>
-              <div className="icon" style={{ marginTop: "30px" }}>
-                <style.TitleWrapper types="desc" bgColor={bgColor}>
-                  <VscGithubInverted size={20} />
-                  kevinkim910408
+    <style.Wrapper>
+      <button onClick={profileColorChange}>Click Me!</button>
+      <style.CardContainer
+        onMouseMove={tiltEffect}
+        onMouseLeave={resetTiltEffect}
+      >
+        <style.Card rotateX={rotateX} rotateY={rotateY}>
+          <style.CardShadow />
+          <style.CardInner isTilted={isTilted} bgColor={bgColor}>
+            <div className="card__Inner-BorderBox">
+              <MdEmojiPeople
+                size={80}
+                color={bgColor}
+                className="icon mainIcon"
+              />
+            </div>
+            <div className="card__Inner-HideBox">
+              <style.ProfileBox>
+                <style.ProfilePic bgColor={bgColor} />
+              </style.ProfileBox>
+              <div className="flex-col">
+                <style.TitleWrapper types="main" bgColor={bgColor}>
+                  케빈킴
                 </style.TitleWrapper>
-              </div>
-              <div className="icon">
-                <style.TitleWrapper types="desc" bgColor={bgColor}>
-                  <MdEmail size={20} />
-                  kjunho.dev@gmail.com
+                <style.TitleWrapper types="sub" bgColor={bgColor}>
+                  Dev
                 </style.TitleWrapper>
+                <div className="icon" style={{ marginTop: "30px" }}>
+                  <style.TitleWrapper types="desc" bgColor={bgColor}>
+                    <VscGithubInverted size={20} />
+                    kevinkim910408
+                  </style.TitleWrapper>
+                </div>
+                <div className="icon">
+                  <style.TitleWrapper types="desc" bgColor={bgColor}>
+                    <MdEmail size={20} />
+                    kjunho.dev@gmail.com
+                  </style.TitleWrapper>
+                </div>
               </div>
             </div>
-          </div>
-        </style.CardInner>
-      </style.Card>
-    </style.CardContainer>
+          </style.CardInner>
+        </style.Card>
+      </style.CardContainer>
+    </style.Wrapper>
   );
 };
 

@@ -6,6 +6,15 @@ import {
   fadeOut,
 } from "./NameCardAnim";
 
+const Wrapper = styled.div`
+  position: relative;
+  button {
+    position: absolute;
+    top: -20%;
+    right: 0;
+  }
+`;
+
 const CardContainer = styled.div`
   position: relative;
   width: 320px;
@@ -157,6 +166,7 @@ const TitleWrapper = styled.div<{ types: TitleType; bgColor: string }>`
 `;
 
 export {
+  Wrapper,
   CardContainer,
   Card,
   CardShadow,
