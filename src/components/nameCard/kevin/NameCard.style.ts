@@ -22,14 +22,14 @@ const CardContainer = styled.div`
   perspective: 1000px;
 `;
 
-const Card = styled.div<{ rotateX: number; rotateY: number }>`
+const Card = styled.div<{ rotateX: number; rotateY: number; bgColor: string }>`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: #272727;
-  border: 1px solid white;
+  border: 1px solid ${(props) => props.bgColor};
   border-radius: 12px;
   transform-style: preserve-3d;
   transition: transform 0.5s;
@@ -74,7 +74,8 @@ const CardInner = styled.div<{ isTilted: boolean; bgColor: string }>`
     gap: 10px;
   }
   .mainIcon {
-    display: ${(props) => (props.isTilted ? "none" : "block")};
+    animation: ${(props) => (props.isTilted ? fadeOut : fadeIn)} 0.3s ease-in
+      forwards;
   }
 
   .card__Inner-BorderBox {
@@ -114,10 +115,16 @@ const ProfileBox = styled.div`
   overflow: hidden;
 `;
 
-const ProfilePic = styled.div<{ bgColor: string }>`
-  width: 500px;
-  height: 500px;
+const ProfilePic = styled.div<{
+  bgColor: string;
+  rotateX: number;
+  rotateY: number;
+}>`
+  min-width: 200px;
+  height: 200px;
   background: ${(props) => props.bgColor};
+  transform: translateY(${(props) => props.rotateX}px)
+    translateX(${(props) => props.rotateY}px);
 `;
 
 type TitleType = "main" | "sub" | "desc";

@@ -26,10 +26,12 @@ export const CardInnerBoxAnimation = keyframes`
   from {
     width: 50%;
     height: 50%;
+  
   }
   to {
     width: 80%;
     height: 90%;
+    
   }
 `;
 
