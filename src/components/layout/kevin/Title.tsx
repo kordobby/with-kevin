@@ -42,6 +42,4 @@ const TitleWrapper = styled.div<{ types: TitleType }>`
   }}
 `;
 
-const TitleText = styled.span``;
-
 export default Title;

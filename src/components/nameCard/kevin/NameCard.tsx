@@ -8,6 +8,7 @@ const NameCard = () => {
   const [rotateX, setRotateX] = useState<number>(0);
   const [rotateY, setRotateY] = useState<number>(0);
   const [isTilted, setIsTilted] = useState<boolean>(false);
+  const [bgColor, setBgColor] = useState("#fff");
 
   const tiltEffect = (e: MouseEvent<HTMLDivElement>): void => {
     setIsTilted(true);
@@ -18,7 +19,6 @@ const NameCard = () => {
     const offsetY = -(rect.top + rect.height / 2 - e.clientY) / 10;
     setRotateX(offsetY);
     setRotateY(offsetX);
-    setBgColor(getRandomColor());
   };
 
   const resetTiltEffect = (): void => {
@@ -28,11 +28,26 @@ const NameCard = () => {
   };
 
   const getRandomColor = () => {
-    const colors = ["#FF5733", "#DAF7A6", "#FFC300", "#C70039"];
+    const colors = [
+      "#FF5733",
+      "#DAF7A6",
+      "#FFC300",
+      "#F4D03F",
+      "#AED6F1",
+      "#E74C3C",
+      "#3498DB",
+      "#9B59B6",
+      "#D35400",
+      "#00B16A",
+      "#F7DC6F",
+      "#1ABC9C",
+    ];
     return colors[Math.floor(Math.random() * colors.length)];
   };
 
-  const [bgColor, setBgColor] = useState("#fff");
+  const profileColorChange = () => {
+    setBgColor(getRandomColor());
+  };
 
   return (
     <style.CardContainer
@@ -41,28 +56,36 @@ const NameCard = () => {
     >
       <style.Card rotateX={rotateX} rotateY={rotateY}>
         <style.CardShadow />
-        <style.CardInner isTilted={isTilted}>
+        <style.CardInner isTilted={isTilted} bgColor={bgColor}>
           <div className="card__Inner-BorderBox">
-            <MdEmojiPeople size={80} color="white" className="icon mainIcon" />
+            <MdEmojiPeople
+              size={80}
+              color={bgColor}
+              className="icon mainIcon"
+            />
           </div>
           <div className="card__Inner-HideBox">
-            <style.ProfileBox>
+            <style.ProfileBox onMouseEnter={profileColorChange}>
               <style.ProfilePic bgColor={bgColor} />
             </style.ProfileBox>
             <div className="flex-col">
-              <style.CardTitle>케빈킴</style.CardTitle>
-              <style.CardSubtitle>Dev</style.CardSubtitle>
+              <style.TitleWrapper types="main" bgColor={bgColor}>
+                케빈킴
+              </style.TitleWrapper>
+              <style.TitleWrapper types="sub" bgColor={bgColor}>
+                Dev
+              </style.TitleWrapper>
               <div className="icon" style={{ marginTop: "30px" }}>
-                <style.CardDesc>
+                <style.TitleWrapper types="desc" bgColor={bgColor}>
                   <VscGithubInverted size={20} />
                   kevinkim910408
-                </style.CardDesc>
+                </style.TitleWrapper>
               </div>
               <div className="icon">
-                <style.CardDesc>
+                <style.TitleWrapper types="desc" bgColor={bgColor}>
                   <MdEmail size={20} />
                   kjunho.dev@gmail.com
-                </style.CardDesc>
+                </style.TitleWrapper>
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import {
   CardInnerBoxAnimation,
   CardInnerBoxAnimationOpposite,
@@ -41,7 +41,7 @@ const CardShadow = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 `;
 
-const CardInner = styled.div<{ isTilted: boolean }>`
+const CardInner = styled.div<{ isTilted: boolean; bgColor: string }>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -75,7 +75,7 @@ const CardInner = styled.div<{ isTilted: boolean }>`
     justify-content: center;
     width: 50%;
     height: 50%;
-    border: 10px solid #fff;
+    border: 10px solid ${(props) => props.bgColor};
     border-radius: 12px;
     animation: ${(props) =>
         props.isTilted ? CardInnerBoxAnimation : CardInnerBoxAnimationOpposite}
@@ -121,24 +121,36 @@ const ProfileBox = styled.div`
 const ProfilePic = styled.div<{ bgColor: string }>`
   width: 150px;
   height: 150px;
-  background: ${(props) => props.bgColor || "#fff"};
+  background: ${(props) => props.bgColor};
   border-radius: 100%;
   border: 5px solid #000;
 `;
 
-const CardTitle = styled.div`
-  color: white;
-  font-size: 1.8rem;
-  font-weight: 700;
-`;
+type TitleType = "main" | "sub" | "desc";
 
-const CardSubtitle = styled.div`
-  color: white;
-  font-size: 1.3rem;
-`;
-
-const CardDesc = styled.div`
-  color: white;
+const TitleWrapper = styled.div<{ types: TitleType; bgColor: string }>`
+  color: ${(props) => props.bgColor};
+  ${({ types }) => {
+    switch (types) {
+      case "main":
+        return css`
+          font-size: 1.8rem;
+          font-weight: 700;
+        `;
+      case "sub":
+        return css`
+          font-size: 1.3rem;
+        `;
+      case "desc":
+        return css`
+          font-weight: 500;
+          font-size: 1.2rem;
+          margin-bottom: 40px;
+        `;
+      default:
+        return;
+    }
+  }}
 `;
 
 export {
@@ -148,7 +160,5 @@ export {
   CardInner,
   ProfileBox,
   ProfilePic,
-  CardTitle,
-  CardSubtitle,
-  CardDesc,
+  TitleWrapper,
 };
