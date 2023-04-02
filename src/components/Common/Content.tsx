@@ -3,11 +3,14 @@ import { colors } from "@/utils/YoontilColors";
 import { FC } from "react";
 
 export type ContentTypes = "true" | "kevin";
+export type ContentsTypes = "dynamic-card";
+
 interface ContentProps {
   types: ContentTypes;
+  contentsType: ContentsTypes;
 }
 
-const Content: FC<ContentProps> = ({ types }) => {
+const Content: FC<ContentProps> = ({ types, contentsType }) => {
   return (
     <ContentWrapper types={types}>
       <ContentHeader>
