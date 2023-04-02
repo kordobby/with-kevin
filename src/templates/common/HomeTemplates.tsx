@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Contents from "@/components/Common/Contents";
 
 type PageTypes = "/nameCards";
-export type ContentsTypes = "dynamic-card";
+export type ContentsTypes = "Dynamic Card";
 
 const HomeTemplates = () => {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const HomeTemplates = () => {
       >
         Dynamic Cards
       </button>
-      <Contents types={"dynamic-card"}></Contents>
+      <Contents types={"Dynamic Card"}></Contents>
     </CommonLayout>
   );
 };

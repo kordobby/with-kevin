@@ -17,7 +17,7 @@ const Contents: FC<ContentsProps> = ({ types }) => {
           <Content
             key={`content-${index}`}
             types={value}
-            contentsType={"dynamic-card"}
+            contentsType={types}
           />
         );
       })}
