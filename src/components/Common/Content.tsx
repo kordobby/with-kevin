@@ -57,6 +57,9 @@ const ContentWrapper = styled.div<{ types: MemberTypes }>`
           top: 0;
           left: 0;
           background-color: #ffffe3;
+          &:hover {
+            z-index: 3;
+          }
         `;
       default:
         return css`
