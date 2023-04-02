@@ -1,9 +1,8 @@
-import Layout from "@/components/layout/true/Layout";
-import NameCard from "@/components/nameCard/true/NameCard";
-import NameCardTemplate from "@/templates/true/NameCardTemplate";
+// import NameCardTemplate from "@/templates/true/NameCardTemplate";
+import HomeTemplates from "@/templates/common/HomeTemplates";
 
 const PageHome = () => {
-  return <NameCardTemplate />;
+  return <HomeTemplates />;
 };
 
 export default PageHome;
