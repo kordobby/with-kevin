@@ -13,7 +13,7 @@ const Contents: FC<ContentsProps> = ({ types }) => {
   return (
     <ContentsWrapper>
       {members.map((value, index) => {
-        return <Content key={`content-${index}`} types={value}></Content>;
+        return <Content key={`content-${index}`} types={value} />;
       })}
     </ContentsWrapper>
   );
