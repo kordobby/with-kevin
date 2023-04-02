@@ -1,41 +1,53 @@
-import styled, { css } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 import useShuffleTheme from "./hooks/useShuffleTheme";
 import useGestureHandle from "./hooks/useGestureHandle";
 import { VscGithubInverted } from "react-icons/vsc";
 import { MdEmail } from "react-icons/md";
-type CardTextType = "name" | "email" | "date";
+import ProfileContents from "./ProfileContents";
+import Profile from "./Profile";
 
 const NameCard = () => {
-  const { shuffleColors, bgColor } = useShuffleTheme();
-  const { moveDynamic, clearTransform, setCardElement, glowEffect } =
-    useGestureHandle();
+  const { bgColor } = useShuffleTheme();
+  const {
+    moveDynamic,
+    clearTransform,
+    setCardElement,
+    glowEffect,
+    hologramEffect,
+    hologramPosition,
+    hologramFilter,
+  } = useGestureHandle();
 
   return (
     <>
       <CardRoot onMouseMove={moveDynamic} onMouseLeave={clearTransform}>
         <Card ref={setCardElement} bgColor={bgColor}>
           <ProfileRoot>
-            {/* <Profile></Profile> */}
-            <img
-              src={"images/leetrue.png"}
-              width="180"
-              style={{ borderRadius: "90px" }}
+            <Profile />
+            <HologramGlow
+              style={{
+                backgroundPosition: hologramPosition,
+                filter: hologramFilter,
+                backgroundImage: hologramEffect,
+              }}
             />
           </ProfileRoot>
           <CardContents>
-            <CardText types={`name`}>이트루</CardText>
-            <CardText types={`email`}>
-              <VscGithubInverted size={20} />
-              <span>kordobby</span>
-            </CardText>
-            <CardText types={`email`}>
-              <MdEmail size={20} />
-              <span>leetrue@chicment.com</span>
-            </CardText>
-            <CardText types={`date`}>Jr. FE Developer</CardText>
+            <ProfileContents types={`name`}>이트루</ProfileContents>
+            <ProfileContents types={`email`}>FE Dev</ProfileContents>
+
+            <ProfileContents
+              types={`github`}
+              icon={<VscGithubInverted size={20} />}
+            >
+              kordobby
+            </ProfileContents>
+            <ProfileContents types={`github`} icon={<MdEmail size={20} />}>
+              leetrue@chicment.com
+            </ProfileContents>
           </CardContents>
           <CardGlow style={{ backgroundImage: glowEffect }} />
-          {/* <HologramGlow /> */}
         </Card>
       </CardRoot>
     </>
@@ -87,39 +99,21 @@ const CardGlow = styled.div`
   background-image: radial-gradient(circle at 50% -20%, #ffffff31, #0000001d);
 `;
 
-const HologramGlow = styled(CardGlow)`
-  /* background-image: radial-gradient(circle at 50% -20%, #4bf5f213, #020a3a4d); */
-`;
+const HologramGlow = styled.img`
+  z-index: 2;
+  mask-image: url(https://assets.codepen.io/13471/sparkles.gif);
+  width: 177px;
+  height: 177px;
+  border-radius: 300px;
+  background-size: 130% 240%, 200% 700%, 300% 100%, 200% 100%;
+  background-blend-mode: screen, difference, normal;
+  opacity: 0.2;
 
-const CardText = styled.div<{ types: CardTextType }>`
-  display: flex;
-  align-items: center;
-  color: #6870d8;
-  ${({ types }) => {
-    switch (types) {
-      case "name":
-        return css`
-          font-weight: 800;
-          font-size: 26px;
-        `;
-      case "email":
-        return css`
-          font-weight: 500;
-          font-size: 16px;
-          margin-top: 8px;
-        `;
-      case "date":
-        return css`
-          font-size: 12px;
-          margin-top: 8px;
-        `;
-      default:
-        return css``;
-    }
-  }}
-  span {
-    margin-left: 5px;
-  }
+  position: absolute;
+  top: 61.12%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 4px));
+  /* background-image: radial-gradient(circle at 50% -20%, #4bf5f213, #020a3a4d); */
 `;
 
 const ProfileRoot = styled.div`
@@ -128,6 +122,7 @@ const ProfileRoot = styled.div`
   align-items: center;
   position: relative;
   height: 213px;
-  padding-top: 30px;
-  margin-bottom: 50px;
+  padding-top: 50px;
+  margin-bottom: 20px;
+  /* border: 1px solid red; */
 `;
