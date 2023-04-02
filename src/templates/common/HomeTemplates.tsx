@@ -1,4 +1,4 @@
-import Layout from "@/components/layout/true/Layout";
+import CommonLayout from "@/components/Common/CommonLayout";
 import { useNavigate } from "react-router-dom";
 
 type PageTypes = "/nameCards";
@@ -8,7 +8,7 @@ const HomeTemplates = () => {
     navigate(pages);
   };
   return (
-    <Layout>
+    <CommonLayout>
       <button
         onClick={() => {
           movePages("/nameCards");
@@ -16,7 +16,7 @@ const HomeTemplates = () => {
       >
         Dynamic Cards
       </button>
-    </Layout>
+    </CommonLayout>
   );
 };
 
