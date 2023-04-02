@@ -1,8 +1,8 @@
 // import NameCardTemplate from "@/templates/true/NameCardTemplate";
-import NameCardTemplate from "@/templates/kevin/NameCardTemplate";
+import HomeTemplates from "@/templates/common/HomeTemplates";
 
 const PageHome = () => {
-  return <NameCardTemplate />;
+  return <HomeTemplates />;
 };
 
 export default PageHome;
