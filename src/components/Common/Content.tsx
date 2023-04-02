@@ -27,7 +27,9 @@ const Content: FC<ContentProps> = ({ types, contentsType }) => {
             }
           )}
         </HeaderDotsWrapper>
-        <span>Dynamic Cards</span>
+        <span>
+          {types} {contentsType}
+        </span>
       </ContentHeader>
     </ContentWrapper>
   );
@@ -76,6 +78,7 @@ const ContentHeader = styled.div`
   span {
     color: #0c0c0c3a;
     font-size: 14px;
+    font-weight: 700;
   }
 `;
 
