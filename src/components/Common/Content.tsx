@@ -1,8 +1,15 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { colors } from "@/utils/YoontilColors";
-const Content = () => {
+import { FC } from "react";
+
+type ContentTypes = "true" | "kevin";
+interface ContentProps {
+  types: ContentTypes;
+}
+
+const Content: FC<ContentProps> = ({ types }) => {
   return (
-    <ContentWrapper>
+    <ContentWrapper types={types}>
       <ContentHeader>
         <HeaderDotsWrapper>
           {[colors.miffy.red, colors.miffy.yellow, colors.miffy.green].map(
@@ -25,11 +32,35 @@ const Content = () => {
 
 export default Content;
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled.div<{ types: ContentTypes }>`
   width: 400px;
   height: 280px;
   border-radius: 10px;
-  background-color: white;
+  position: absolute;
+
+  ${({ types }) => {
+    switch (types) {
+      case "true":
+        return css`
+          bottom: 0;
+          right: 0;
+          background-color: white;
+          z-index: 1;
+        `;
+      case "kevin":
+        return css`
+          top: 0;
+          left: 0;
+          background-color: #ffffe3;
+        `;
+      default:
+        return css`
+          bottom: 0;
+          right: 0;
+          background-color: white;
+        `;
+    }
+  }}
 `;
 
 const ContentHeader = styled.div`
