@@ -1,11 +1,20 @@
-import React from "react";
-import Content from "./Content";
+import React, { FC } from "react";
+import Content, { ContentTypes } from "./Content";
 import styled from "styled-components";
-const Contents = () => {
+import { ContentsTypes } from "@/templates/common/HomeTemplates";
+
+interface ContentsProps {
+  types: ContentsTypes;
+}
+
+const Contents: FC<ContentsProps> = ({ types }) => {
+  const members = ["true", "kevin"] as ContentTypes[];
+
   return (
     <ContentsWrapper>
-      <Content types="true"></Content>
-      <Content types="kevin"></Content>
+      {members.map((value, index) => {
+        return <Content key={`content-${index}`} types={value}></Content>;
+      })}
     </ContentsWrapper>
   );
 };

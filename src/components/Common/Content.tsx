@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { colors } from "@/utils/YoontilColors";
 import { FC } from "react";
 
-type ContentTypes = "true" | "kevin";
+export type ContentTypes = "true" | "kevin";
 interface ContentProps {
   types: ContentTypes;
 }
