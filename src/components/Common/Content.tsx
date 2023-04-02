@@ -3,10 +3,10 @@ import { colors } from "@/utils/YoontilColors";
 import { FC } from "react";
 import { ContentsTypes } from "@/templates/common/HomeTemplates";
 
-export type ContentTypes = "true" | "kevin";
+export type MemberTypes = "true" | "kevin";
 
 interface ContentProps {
-  types: ContentTypes;
+  types: MemberTypes;
   contentsType: ContentsTypes;
 }
 
@@ -37,7 +37,7 @@ const Content: FC<ContentProps> = ({ types, contentsType }) => {
 
 export default Content;
 
-const ContentWrapper = styled.div<{ types: ContentTypes }>`
+const ContentWrapper = styled.div<{ types: MemberTypes }>`
   width: 400px;
   height: 280px;
   border-radius: 10px;

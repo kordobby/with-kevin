@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import Content, { ContentTypes } from "./Content";
+import Content, { MemberTypes } from "./Content";
 import styled from "styled-components";
 import { ContentsTypes } from "@/templates/common/HomeTemplates";
 
@@ -8,7 +8,7 @@ interface ContentsProps {
 }
 
 const Contents: FC<ContentsProps> = ({ types }) => {
-  const members = ["true", "kevin"] as ContentTypes[];
+  const members = ["true", "kevin"] as MemberTypes[];
 
   return (
     <ContentsWrapper>
