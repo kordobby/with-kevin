@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components";
 import { colors } from "@/utils/YoontilColors";
 import { FC } from "react";
+import { ContentsTypes } from "@/templates/common/HomeTemplates";
 
 export type ContentTypes = "true" | "kevin";
-export type ContentsTypes = "dynamic-card";
 
 interface ContentProps {
   types: ContentTypes;
