@@ -1,14 +1,26 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PageHome from "@/pages/PageHome";
-import SideBar from "@/components/Common/SideBar";
-import NameCards from "@/pages/NameCards";
+import PageTemplate from "@/pages/PageTemplate";
+
+// Name Card Components
+import TrueCardTemplate from "@/templates/true/NameCardTemplate";
+import KevinCardTemplate from "@/templates/kevin/NameCardTemplate";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<PageHome />} />
-        <Route path="/nameCards" element={<NameCards />} />
+        {/* Name Card */}
+        <Route
+          path="/DynamicCard/:member"
+          element={
+            <PageTemplate
+              trueComponent={<TrueCardTemplate />}
+              kevinComponent={<KevinCardTemplate />}
+            />
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

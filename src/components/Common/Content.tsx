@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { colors } from "@/utils/YoontilColors";
 import { FC } from "react";
 import { ContentsTypes } from "@/templates/common/HomeTemplates";
+import { useNavigate } from "react-router-dom";
 
 export type MemberTypes = "true" | "kevin";
 
@@ -11,8 +12,12 @@ interface ContentProps {
 }
 
 const Content: FC<ContentProps> = ({ types, contentsType }) => {
+  const navigate = useNavigate();
+  const movePages = (): void => {
+    navigate(`/${contentsType.replace(/\s/g, "")}/${types}`);
+  };
   return (
-    <ContentWrapper types={types}>
+    <ContentWrapper types={types} onClick={movePages}>
       <ContentHeader>
         <HeaderDotsWrapper>
           {[colors.miffy.red, colors.miffy.yellow, colors.miffy.green].map(
@@ -43,6 +48,12 @@ const ContentWrapper = styled.div<{ types: MemberTypes }>`
   border-radius: 10px;
   position: absolute;
   transition: transform 1s ease-in-out;
+
+  /* 여기 호버 스타일링 봐주셈 */
+  cursor: pointer;
+  &:hover {
+    border: 1px solid #3d3c3c;
+  }
 
   ${({ types }) => {
     switch (types) {
