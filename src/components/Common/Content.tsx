@@ -42,6 +42,7 @@ const ContentWrapper = styled.div<{ types: MemberTypes }>`
   height: 280px;
   border-radius: 10px;
   position: absolute;
+  transition: transform 0.2s ease-in;
 
   ${({ types }) => {
     switch (types) {
@@ -58,6 +59,7 @@ const ContentWrapper = styled.div<{ types: MemberTypes }>`
           left: 0;
           background-color: #ffffe3;
           &:hover {
+            transform: rotate(-380deg);
             z-index: 3;
           }
         `;
