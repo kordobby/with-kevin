@@ -1,14 +1,17 @@
-import Layout from "@/components/layout/true/Layout";
+import CommonLayout from "@/components/Common/CommonLayout";
 import { useNavigate } from "react-router-dom";
+import Contents from "@/components/Common/Contents";
 
 type PageTypes = "/nameCards";
+export type ContentsTypes = "Dynamic Card";
+
 const HomeTemplates = () => {
   const navigate = useNavigate();
   const movePages = (pages: PageTypes): void => {
     navigate(pages);
   };
   return (
-    <Layout>
+    <CommonLayout>
       <button
         onClick={() => {
           movePages("/nameCards");
@@ -16,7 +19,8 @@ const HomeTemplates = () => {
       >
         Dynamic Cards
       </button>
-    </Layout>
+      <Contents types={"Dynamic Card"}></Contents>
+    </CommonLayout>
   );
 };
 
