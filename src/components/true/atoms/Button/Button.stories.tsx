@@ -15,6 +15,7 @@ export const Default = Template.bind({});
 Default.args = {
   buttonType: "default",
   children: "버튼",
+  onClick: () => console.log("Default"),
 };
 
 export const Primary = Template.bind({});
@@ -37,4 +38,10 @@ IconButton.args = {
   buttonType: "default",
   children: "버튼",
   icon: <VscGithubInverted />,
+};
+export const Link = Template.bind({});
+
+Link.args = {
+  buttonType: "link",
+  children: "버튼",
 };

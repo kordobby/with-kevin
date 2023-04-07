@@ -16,10 +16,10 @@ export interface ButtonProps
   icon?: React.ReactNode;
 }
 
-const Button: FC<ButtonProps> = ({ children, onClick, icon }) => {
+const Button: FC<ButtonProps> = ({ children, onClick, icon, buttonType }) => {
   return (
     <ButtonContext.Provider value={{ size: "lg", icon: icon }}>
-      <ButtonLayout buttonType="primary" onClick={onClick}>
+      <ButtonLayout buttonType={buttonType} onClick={onClick}>
         <ButtonIconSlot />
         <span>{children}</span>
       </ButtonLayout>
@@ -31,7 +31,7 @@ const ButtonIconSlot = () => {
   const { icon } = useContext(ButtonContext);
 
   if (!icon) return null;
-  return <>{icon}</>;
+  return <div>{icon}</div>;
 };
 
 export default Button;
