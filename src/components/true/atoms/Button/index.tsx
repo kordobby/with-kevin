@@ -16,10 +16,10 @@ export interface ButtonProps
   icon?: React.ReactNode;
 }
 
-const Button: FC<ButtonProps> = ({ children, onClick, icon, buttonType }) => {
+const Button: FC<ButtonProps> = ({ children, onClick, icon, theme, color }) => {
   return (
     <ButtonContext.Provider value={{ size: "lg", icon: icon }}>
-      <ButtonLayout buttonType={buttonType} onClick={onClick}>
+      <ButtonLayout theme={theme} onClick={onClick} color={color}>
         <ButtonIconSlot />
         <span>{children}</span>
       </ButtonLayout>

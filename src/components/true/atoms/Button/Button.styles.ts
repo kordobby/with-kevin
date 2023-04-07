@@ -4,7 +4,7 @@ import { colors } from "@/utils/YoontilColors";
 export type ButtonTypes = "primary" | "ghost" | "default" | "link";
 
 export interface ButtonLayoutProps {
-  buttonType: ButtonTypes;
+  theme: ButtonTypes;
 }
 const getButtonStyles = (buttonType: ButtonTypes, color: string) => {
   const primaryButtonStyles = css`
@@ -37,17 +37,17 @@ const getButtonStyles = (buttonType: ButtonTypes, color: string) => {
 
 export const ButtonLayout = styled.button<ButtonLayoutProps>`
   padding: 10px 30px;
-  color: white;
-  border: none;
   width: 100%;
+  border: none;
   border-radius: 5px;
   font-size: 14px;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  ${({ buttonType, color }) => {
-    return getButtonStyles(buttonType, color ?? "black");
+  ${({ theme, color }) => {
+    return getButtonStyles(theme, color ?? "black");
   }}
 
   div {
