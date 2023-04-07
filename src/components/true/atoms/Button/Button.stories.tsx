@@ -1,6 +1,7 @@
 import React from "react";
 import Button, { ButtonProps } from "./index";
 import { Meta, StoryFn } from "@storybook/react";
+import { VscGithubInverted } from "react-icons/vsc";
 
 export default {
   title: "Button",
@@ -28,4 +29,12 @@ export const Ghost = Template.bind({});
 Ghost.args = {
   buttonType: "ghost",
   children: "버튼",
+};
+
+export const IconButton = Template.bind({});
+
+IconButton.args = {
+  buttonType: "default",
+  children: "버튼",
+  icon: <VscGithubInverted />,
 };

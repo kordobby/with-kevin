@@ -12,11 +12,13 @@ const ButtonContext = createContext<ButtonContextProps>({
 });
 export interface ButtonProps
   extends HTMLProps<HTMLButtonElement>,
-    ButtonLayoutProps {}
+    ButtonLayoutProps {
+  icon?: React.ReactNode;
+}
 
-const Button: FC<ButtonProps> = ({ children, onClick }) => {
+const Button: FC<ButtonProps> = ({ children, onClick, icon }) => {
   return (
-    <ButtonContext.Provider value={{ size: "lg", icon: null }}>
+    <ButtonContext.Provider value={{ size: "lg", icon: icon }}>
       <ButtonLayout buttonType="primary" onClick={onClick}>
         <ButtonIconSlot />
         <span>{children}</span>
