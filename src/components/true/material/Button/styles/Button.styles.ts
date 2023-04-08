@@ -25,7 +25,7 @@ export const ButtonLayout = styled.button<ButtonLayoutProps>`
     return getButtonTheme(theme, color ?? "black", disabled ?? false);
   }}
   width: ${({ block }) => (block ? "100%" : "fit-content")};
-  cursor: ${({ disabled }) => (disabled ? "none" : "default")} !important;
+  cursor: ${({ disabled }) => (disabled ? "default" : "pointer")} !important;
   div {
     margin-right: 10px;
   }
