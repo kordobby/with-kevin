@@ -13,8 +13,7 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 export const DefaultStory: Story = {
   args: {
-    children: "버튼",
-    color: "yellow",
+    color: "black",
     theme: "primary",
     onClick: () => console.log("이윤 짱"),
   },
@@ -32,6 +31,9 @@ export const DefaultStory: Story = {
     },
     theme: {
       description: "버튼 타입을 정의합니다.",
+    },
+    block: {
+      description: "block 일 경우 width 100%입니다.",
     },
   },
 };
@@ -63,8 +65,8 @@ Ghost.args = {
   color: "red",
 };
 
-export const IconButton = Template.bind({});
-IconButton.args = {
+export const IconText = Template.bind({});
+IconText.args = {
   ...DefaultStory.args,
   theme: "default",
   children: "버튼",
@@ -78,5 +80,13 @@ Link.args = {
   ...DefaultStory.args,
   theme: "link",
   children: "버튼",
+  onClick: () => console.log("Link"),
+};
+
+export const Icon = Template.bind({});
+Icon.args = {
+  ...DefaultStory.args,
+  theme: "icon",
+  children: <VscGithubInverted />,
   onClick: () => console.log("Link"),
 };
