@@ -18,7 +18,7 @@ export interface ButtonProps
   extends HTMLProps<HTMLButtonElement>,
     ButtonLayoutProps {
   icon?: React.ReactNode;
-  buttonSize: ButtonSize;
+  buttonSize?: ButtonSize;
   shape?: ButtonShape;
 }
 
@@ -34,7 +34,7 @@ export const PrimitiveButton: FC<ButtonProps> = ({
   disabled,
 }) => {
   return (
-    <ButtonContext.Provider value={{ size: buttonSize }}>
+    <ButtonContext.Provider value={{ size: buttonSize ?? "mid" }}>
       <ButtonLayout
         buttonSize={buttonSize}
         theme={theme}
@@ -55,12 +55,19 @@ const ButtonIconSlot = ({ icon }: { icon: ReactNode }) => {
   return <div>{icon}</div>;
 };
 
-const PrimaryButton: FC<ButtonProps> = ({ buttonSize }) => {
-  return <PrimitiveButton theme="primary" buttonSize={buttonSize} />;
+const PrimaryButton: FC<ButtonProps> = ({ buttonSize, children, onClick }) => {
+  return (
+    <PrimitiveButton
+      theme="primary"
+      buttonSize={buttonSize}
+      children={children}
+      onClick={onClick}
+    />
+  );
 };
 
-const GhostButton: FC<ButtonProps> = ({ buttonSize }) => {
-  return <PrimitiveButton theme="ghost" buttonSize={buttonSize} />;
+const GhostButton: FC<ButtonProps> = ({ buttonSize, children }) => {
+  return <PrimitiveButton theme="ghost" children={children} />;
 };
 
 const LinkButton: FC<ButtonProps> = ({ buttonSize }) => {

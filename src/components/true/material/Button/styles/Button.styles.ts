@@ -6,7 +6,7 @@ export type ButtonTheme = "primary" | "ghost" | "default" | "link" | "icon";
 export type ButtonSize = "large" | "small" | "mid"; // md 는 default 하면 안대나
 export type ButtonShape = "default" | "round";
 export interface ButtonLayoutProps {
-  theme: ButtonTheme;
+  theme?: ButtonTheme;
   block?: boolean;
   shape?: ButtonShape;
   buttonSize?: ButtonSize;
