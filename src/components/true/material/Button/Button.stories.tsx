@@ -15,25 +15,36 @@ export const DefaultStory: Story = {
   args: {
     color: "black",
     theme: "primary",
+    children: "버튼",
+    buttonSize: "mid",
+    disabled: false,
+    block: false,
     onClick: () => console.log("이윤 짱"),
   },
   argTypes: {
     disabled: { control: "boolean", description: "비활성화 상태" },
-    color: { description: "버튼 색상을 정의합니다." },
+    color: { description: "(필요 시) 버튼 색상을 정의합니다." },
     onClick: {
       action: () => {
         console.log("clicked");
       },
-      description: "클릭 이벤트 콜백 함수",
+      description: "클릭 이벤트 콜백 함수입니다.",
+    },
+    buttonSize: {
+      description: "버튼의 사이즈를 정의합니다.",
     },
     icon: {
-      description: "아이콘이 필요한 경우 삽입합니다.",
+      description: "(필요 시) 아이콘을 삽입합니다.",
     },
     theme: {
       description: "버튼 타입을 정의합니다.",
     },
     block: {
+      control: "boolean",
       description: "block 일 경우 width 100%입니다.",
+    },
+    children: {
+      description: "버튼명을 삽입합니다.",
     },
   },
 };
@@ -43,17 +54,21 @@ const Template: StoryFn<ButtonProps> = (args) => <PrimitiveButton {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   theme: "primary",
-  buttonSize: "large",
+  buttonSize: "mid",
   color: "black",
   children: "버튼",
+  disabled: false,
+  onClick: () => console.log("이윤 짱"),
 };
 
 export const Link = Template.bind({});
 Link.args = {
   theme: "link",
-  buttonSize: "large",
+  buttonSize: "mid",
   color: "black",
   children: "버튼",
+  disabled: false,
+  onClick: () => console.log("이윤 짱"),
 };
 
 export const Ghost = Template.bind({});
@@ -62,6 +77,8 @@ Ghost.args = {
   buttonSize: "large",
   color: "black",
   children: "버튼",
+  disabled: false,
+  onClick: () => console.log("이윤 짱"),
 };
 
 export const Icon = Template.bind({});
@@ -70,4 +87,6 @@ Icon.args = {
   buttonSize: "large",
   color: "black",
   icon: <VscGithubInverted />,
+  disabled: false,
+  onClick: () => console.log("이윤 짱"),
 };

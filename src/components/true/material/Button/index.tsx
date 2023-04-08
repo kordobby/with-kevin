@@ -4,8 +4,8 @@ import {
   ButtonLayoutProps,
   ButtonShape,
   ButtonSize,
-} from "./Button.styles";
-import { createContext, useContext } from "react";
+} from "./styles/Button.styles";
+import { createContext } from "react";
 
 interface ButtonContextProps {
   size: ButtonSize;
@@ -30,12 +30,22 @@ export const PrimitiveButton: FC<ButtonProps> = ({
   color,
   buttonSize,
   shape,
+  block,
+  disabled,
 }) => {
   return (
     <ButtonContext.Provider value={{ size: buttonSize }}>
-      <ButtonLayout theme={theme} onClick={onClick} color={color} shape={shape}>
+      <ButtonLayout
+        buttonSize={buttonSize}
+        theme={theme}
+        onClick={onClick}
+        color={color}
+        shape={shape}
+        block={block}
+        disabled={disabled}
+      >
         {icon && <ButtonIconSlot icon={icon} />}
-        <span>{children}</span>
+        {theme !== "icon" && <span>{children}</span>}
       </ButtonLayout>
     </ButtonContext.Provider>
   );
