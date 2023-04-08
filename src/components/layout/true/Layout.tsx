@@ -7,6 +7,7 @@ import {
   LayoutInnerWrapper,
   LayoutWrapper,
 } from "./Layout.style";
+import Button from "@/components/true/material/Button";
 
 interface LayoutInterface {
   children: ReactNode;
@@ -25,6 +26,7 @@ const Layout: FC<LayoutInterface> = ({ children }) => {
           </LayoutContext.Provider>
         </LayoutInnerWrapper>
         <ShuffleButton onClick={shuffleColors}>Shuffle</ShuffleButton>
+        <Button.Primary onClick={shuffleColors}>shuffle</Button.Primary>
       </LayoutCenteredWrapper>
     </LayoutWrapper>
   );
