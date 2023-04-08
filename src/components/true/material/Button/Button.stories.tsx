@@ -1,16 +1,16 @@
 import React from "react";
-import Button, { ButtonProps } from "./index";
+import { ButtonProps, PrimitiveButton } from "./index";
 import { Meta, StoryFn, StoryObj } from "@storybook/react";
 import { VscGithubInverted } from "react-icons/vsc";
 
-const meta: Meta<typeof Button> = {
-  title: "TrueComponents/Button",
-  component: Button,
+const meta: Meta<typeof PrimitiveButton> = {
+  title: "TrueComponents/Material/Button",
+  component: PrimitiveButton,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Button>;
+type Story = StoryObj<typeof PrimitiveButton>;
 export const DefaultStory: Story = {
   args: {
     color: "black",
@@ -38,55 +38,36 @@ export const DefaultStory: Story = {
   },
 };
 
-const Template: StoryFn<ButtonProps> = (args) => <Button {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  ...DefaultStory.args,
-  theme: "default",
-  children: "버튼",
-  onClick: () => console.log("Default"),
-};
+const Template: StoryFn<ButtonProps> = (args) => <PrimitiveButton {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  ...DefaultStory.args,
   theme: "primary",
-  children: "버튼",
-  color: "blue",
-  onClick: () => console.log("Primary"),
-};
-
-export const Ghost = Template.bind({});
-Ghost.args = {
-  ...DefaultStory.args,
-  theme: "ghost",
-  children: "버튼",
-  color: "red",
-};
-
-export const IconText = Template.bind({});
-IconText.args = {
-  ...DefaultStory.args,
-  theme: "default",
-  children: "버튼",
+  buttonSize: "large",
   color: "black",
-  icon: <VscGithubInverted />,
-  onClick: () => console.log("IconButton"),
+  children: "버튼",
 };
 
 export const Link = Template.bind({});
 Link.args = {
-  ...DefaultStory.args,
   theme: "link",
+  buttonSize: "large",
+  color: "black",
   children: "버튼",
-  onClick: () => console.log("Link"),
+};
+
+export const Ghost = Template.bind({});
+Ghost.args = {
+  theme: "ghost",
+  buttonSize: "large",
+  color: "black",
+  children: "버튼",
 };
 
 export const Icon = Template.bind({});
 Icon.args = {
-  ...DefaultStory.args,
   theme: "icon",
-  children: <VscGithubInverted />,
-  onClick: () => console.log("Link"),
+  buttonSize: "large",
+  color: "black",
+  icon: <VscGithubInverted />,
 };

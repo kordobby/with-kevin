@@ -3,7 +3,7 @@ import CreditCard from "./CreditCard";
 
 //👇 This default export determines where your story goes in the story list
 const meta: Meta<typeof CreditCard> = {
-  title: "TrueComponents/Credit Card",
+  title: "TrueComponents/Molecules/Credit Card",
   component: CreditCard,
 };
 

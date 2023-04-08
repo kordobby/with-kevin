@@ -7,6 +7,7 @@ export type ButtonShape = "default" | "round" | "circle";
 export interface ButtonLayoutProps {
   theme: ButtonTheme;
   block?: boolean;
+  shape?: ButtonShape;
   // disabled?: boolean;
 }
 const getButtonStyles = (
