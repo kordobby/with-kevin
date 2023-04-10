@@ -19,15 +19,12 @@ export const DefaultStory: Story = {
     buttonSize: "mid",
     disabled: false,
     block: false,
-    onClick: () => console.log("이윤 짱"),
   },
   argTypes: {
     disabled: { control: "boolean", description: "비활성화 상태" },
     color: { description: "(필요 시) 버튼 색상을 정의합니다." },
     onClick: {
-      action: () => {
-        console.log("clicked");
-      },
+      action: "clicked",
       description: "클릭 이벤트 콜백 함수입니다.",
     },
     buttonSize: {
@@ -49,44 +46,44 @@ export const DefaultStory: Story = {
   },
 };
 
-const Template: StoryFn<ButtonProps> = (args) => <PrimitiveButton {...args} />;
+// const Template: StoryFn<ButtonProps> = (args) => <PrimitiveButton {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  theme: "primary",
-  buttonSize: "mid",
-  color: "black",
-  children: "버튼",
-  disabled: false,
-  onClick: () => console.log("이윤 짱"),
-};
+// export const Primary = Template.bind({});
+// Primary.args = {
+//   theme: "primary",
+//   buttonSize: "mid",
+//   color: "black",
+//   children: "버튼",
+//   disabled: false,
+//   onClick: () => console.log("이윤 짱"),
+// };
 
-export const Link = Template.bind({});
-Link.args = {
-  theme: "link",
-  buttonSize: "mid",
-  color: "black",
-  children: "버튼",
-  disabled: false,
-  onClick: () => console.log("이윤 짱"),
-};
+// export const Link = Template.bind({});
+// Link.args = {
+//   theme: "link",
+//   buttonSize: "mid",
+//   color: "black",
+//   children: "버튼",
+//   disabled: false,
+//   onClick: () => console.log("이윤 짱"),
+// };
 
-export const Ghost = Template.bind({});
-Ghost.args = {
-  theme: "ghost",
-  buttonSize: "large",
-  color: "black",
-  children: "버튼",
-  disabled: false,
-  onClick: () => console.log("이윤 짱"),
-};
+// export const Ghost = Template.bind({});
+// Ghost.args = {
+//   theme: "ghost",
+//   buttonSize: "mid",
+//   color: "black",
+//   children: "버튼",
+//   disabled: false,
+//   onClick: () => console.log("이윤 짱"),
+// };
 
-export const Icon = Template.bind({});
-Icon.args = {
-  theme: "icon",
-  buttonSize: "large",
-  color: "black",
-  icon: <VscGithubInverted />,
-  disabled: false,
-  onClick: () => console.log("이윤 짱"),
-};
+// export const Icon = Template.bind({});
+// Icon.args = {
+//   theme: "icon",
+//   buttonSize: "large",
+//   color: "black",
+//   icon: <VscGithubInverted />,
+//   disabled: false,
+//   onClick: () => console.log("이윤 짱"),
+// };

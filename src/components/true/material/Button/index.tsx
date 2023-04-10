@@ -66,17 +66,26 @@ const PrimaryButton: FC<ButtonProps> = ({ buttonSize, children, onClick }) => {
   );
 };
 
-const GhostButton: FC<ButtonProps> = ({ buttonSize, children }) => {
-  return <PrimitiveButton theme="ghost" children={children} />;
-};
-
-const LinkButton: FC<ButtonProps> = ({ buttonSize }) => {
-  return <PrimitiveButton theme="link" buttonSize={buttonSize} />;
-};
-
-const IconButton: FC<ButtonProps> = ({ buttonSize }) => {
+const GhostButton: FC<ButtonProps> = ({ buttonSize, children, onClick }) => {
   return (
-    <PrimitiveButton theme="icon" buttonSize={buttonSize} shape={"round"} />
+    <PrimitiveButton theme="ghost" children={children} onClick={onClick} />
+  );
+};
+
+const LinkButton: FC<ButtonProps> = ({ buttonSize, onClick }) => {
+  return (
+    <PrimitiveButton theme="link" buttonSize={buttonSize} onClick={onClick} />
+  );
+};
+
+const IconButton: FC<ButtonProps> = ({ buttonSize, onClick }) => {
+  return (
+    <PrimitiveButton
+      theme="icon"
+      buttonSize={buttonSize}
+      shape={"round"}
+      onClick={onClick}
+    />
   );
 };
 
