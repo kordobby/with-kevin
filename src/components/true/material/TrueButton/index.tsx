@@ -1,24 +1,20 @@
-import { ButtonHTMLAttributes, ReactNode, forwardRef } from "react";
+import { ButtonHTMLAttributes, FC, useRef } from "react";
 import styled from "styled-components";
 
-export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  size?: "lg" | "md" | "sm";
+  theme?: "primary" | "secondary";
+  children?: string;
+}
 
-// const TrueButton = forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
-//   return (
-//     <Button
-//       onClick={() => {
-//         console.log("...");
-//       }}
-//     ></Button>
-//   );
-// });
-const TrueButton = ({}) => {
+const TrueButton: FC<IButtonProps> = (props) => {
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const { theme, size, children } = props;
+
   return (
-    <Button
-      onClick={() => {
-        console.log("...");
-      }}
-    ></Button>
+    <Button ref={buttonRef} {...props}>
+      {children}
+    </Button>
   );
 };
 

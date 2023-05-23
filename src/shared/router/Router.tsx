@@ -5,6 +5,7 @@ import PageTemplate from "@/pages/PageTemplate";
 // Name Card Components
 import TrueCardTemplate from "@/templates/true/NameCardTemplate";
 import KevinCardTemplate from "@/templates/kevin/NameCardTemplate";
+import PageTest from "@/pages/PageTest";
 
 const Router = () => {
   return (
@@ -21,6 +22,7 @@ const Router = () => {
             />
           }
         />
+        <Route path="test" element={<PageTest />} />
       </Routes>
     </BrowserRouter>
   );
